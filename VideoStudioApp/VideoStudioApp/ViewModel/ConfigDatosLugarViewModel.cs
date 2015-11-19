@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using VideoStudioApp.Business;
 using VideoStudioApp.Command;
 using VideoStudioApp.Model;
 using VideoStudioApp.Views;
@@ -22,19 +23,31 @@ namespace VideoStudioApp.ViewModel
        public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
+       public List<ComboBoxD> ListaBrigadas { get; set; }
 
-        public ConfigDatosLugarViewModel(Window home, Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
+       public List<ComboBoxD> ListaMunicipios { get; set; }
+       public List<ComboBoxD> ListaColonias { get; set; }
+       
+       public ConfigDatosLugarViewModel(Window home, Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
         {
             Home = home;
             CurrentWindow = current;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             GrabacionVideoCurrent = new Grabacion();
+            CargarCombos();
         }
 
+       public void CargarCombos()
+       {
+           AppManager appManager = new AppManager();
+           ListaBrigadas = appManager.GetBrigadas();
+           ListaColonias = appManager.GetColonias();
+           ListaMunicipios = appManager.GetMunicipios();
+       }
 
 
-        private ICommand iniciarConfigDatosPersonaCommand;
+       private ICommand iniciarConfigDatosPersonaCommand;
         public ICommand IniciarConfigDatosPersonaCommand
         {
             get

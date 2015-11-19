@@ -32101,25 +32101,6 @@ INSERT INTO `codigospostales` (`CodigoPostal`, `Colonia`, `Municipio`, `Estado`)
 /*!40000 ALTER TABLE `codigospostales` ENABLE KEYS */;
 
 
--- Volcando estructura para tabla videoapp.colonia
-CREATE TABLE IF NOT EXISTS `colonia` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Descripcion` varchar(200) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
--- Volcando datos para la tabla videoapp.colonia: ~6 rows (aproximadamente)
-/*!40000 ALTER TABLE `colonia` DISABLE KEYS */;
-INSERT INTO `colonia` (`Id`, `Descripcion`) VALUES
-	(1, 'C1'),
-	(2, 'C2'),
-	(3, 'C3'),
-	(4, 'C4'),
-	(5, 'C5'),
-	(6, 'Otros');
-/*!40000 ALTER TABLE `colonia` ENABLE KEYS */;
-
-
 -- Volcando estructura para tabla videoapp.grabaciones
 CREATE TABLE IF NOT EXISTS `grabaciones` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
@@ -32133,10 +32114,10 @@ CREATE TABLE IF NOT EXISTS `grabaciones` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla videoapp.grabaciones: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla videoapp.grabaciones: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `grabaciones` DISABLE KEYS */;
 INSERT INTO `grabaciones` (`Id`, `lugar`, `brigada`, `colonia`, `municipio`, `creado`, `nombre`, `edad`) VALUES
-	(1, 'Mi casa', 'brigada 1', 'colonia 1', 'municipio', '2015-11-18 20:15:55', 'nicolas', '2015-11-18');
+	(1, 'Mi casa', 'brigada 1', 'colonia 1', 'municipio', '2015-11-18 17:15:55', 'nicolas', '2015-11-18');
 /*!40000 ALTER TABLE `grabaciones` ENABLE KEYS */;
 
 
@@ -32147,7 +32128,7 @@ CREATE TABLE IF NOT EXISTS `lugar` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla videoapp.lugar: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla videoapp.lugar: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `lugar` DISABLE KEYS */;
 INSERT INTO `lugar` (`Id`, `Descripcion`) VALUES
 	(1, 'L1'),
@@ -32157,24 +32138,6 @@ INSERT INTO `lugar` (`Id`, `Descripcion`) VALUES
 	(5, 'L5'),
 	(6, 'Otros');
 /*!40000 ALTER TABLE `lugar` ENABLE KEYS */;
-
-
--- Volcando estructura para tabla videoapp.municipio
-CREATE TABLE IF NOT EXISTS `municipio` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Descripcion` varchar(200) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- Volcando datos para la tabla videoapp.municipio: ~5 rows (aproximadamente)
-/*!40000 ALTER TABLE `municipio` DISABLE KEYS */;
-INSERT INTO `municipio` (`Id`, `Descripcion`) VALUES
-	(1, 'M1'),
-	(2, 'M2'),
-	(3, 'M3'),
-	(4, 'M4'),
-	(5, 'M5');
-/*!40000 ALTER TABLE `municipio` ENABLE KEYS */;
 
 
 -- Volcando estructura para procedimiento videoapp.ObtenerBrigadas
@@ -32194,7 +32157,7 @@ CREATE DEFINER=`ntiseira`@`%` PROCEDURE `ObtenerColonias`()
 BEGIN
 
 
-SELECT ID, Descripcion from Colonia;
+SELECT Distinct Colonia from codigospostales;
 
 END//
 DELIMITER ;
@@ -32206,6 +32169,17 @@ CREATE DEFINER=`ntiseira`@`%` PROCEDURE `ObtenerLugares`()
 BEGIN
 
 SELECT ID, Descripcion from lugar;
+
+END//
+DELIMITER ;
+
+
+-- Volcando estructura para procedimiento videoapp.ObtenerMunicipios
+DELIMITER //
+CREATE DEFINER=`ntiseira`@`%` PROCEDURE `ObtenerMunicipios`()
+BEGIN
+
+SELECT DISTINCT  municipio  from codigospostales;
 
 END//
 DELIMITER ;
@@ -32259,7 +32233,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla videoapp.usuario: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla videoapp.usuario: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`Id`, `Usuario`, `Password`) VALUES
 	(1, 'ntiseira', '1234');

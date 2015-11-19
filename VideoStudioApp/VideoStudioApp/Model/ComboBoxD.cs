@@ -8,7 +8,7 @@ namespace VideoStudioApp.Model
 {
     public  class ComboBoxD
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Descripcion { get; set; }
     }
 }

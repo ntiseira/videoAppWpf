@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Excel;
 using VideoStudioApp.Data_Access;
 using VideoStudioApp.Model;
 
@@ -35,12 +37,22 @@ namespace VideoStudioApp.Business
         }
 
 
+        
+
+       public List<ComboBoxD> GetMunicipios()
+        {
+            List<ComboBoxD> list = new List<ComboBoxD>();
+            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+            var data = mysqlAccess.ExecuteProcedure("ObtenerMunicipios", null);
+            return ParseDataTableComboBox(data);
+        }
+
         public List<ComboBoxD> GetColonias()
         {
             List<ComboBoxD> list = new List<ComboBoxD>();
             MySqlDataAccess mysqlAccess = new MySqlDataAccess();
            var data = mysqlAccess.ExecuteProcedure("ObtenerColonias", null);
-           return list;
+           return ParseDataTableComboBox(data);
         }
 
         public List<ComboBoxD> GetBrigadas()
@@ -48,7 +60,7 @@ namespace VideoStudioApp.Business
             List<ComboBoxD> list = new List<ComboBoxD>();
             MySqlDataAccess mysqlAccess = new MySqlDataAccess();
             var data = mysqlAccess.ExecuteProcedure("ObtenerBrigadas", null);
-            return list;
+            return ParseDataTableComboBox(data);
         }
 
         public List<ComboBoxD> GetLugares()
@@ -56,6 +68,36 @@ namespace VideoStudioApp.Business
             List<ComboBoxD> list = new List<ComboBoxD>();
             MySqlDataAccess mysqlAccess = new MySqlDataAccess();
             var data = mysqlAccess.ExecuteProcedure("ObtenerLugares", null);
+
+            return ParseDataTableComboBox(data);
+            
+        }
+
+
+        private List<ComboBoxD> ParseDataTableComboBox(System.Data.DataTable dataTable)
+        {
+           List<ComboBoxD> list = new List<ComboBoxD>();
+
+            for(int i = 0; i< dataTable.Rows.Count ; i ++)
+            {
+                DataRow row = dataTable.Rows[i];
+                var values = row.ItemArray;
+                ComboBoxD cbo = new ComboBoxD();
+
+                if (values.Count() == 1)
+                {
+                    cbo.ID = i.ToString() ;
+                    cbo.Descripcion = values[0].ToString();
+                }
+                
+                else
+                {
+                    cbo.ID = values[0].ToString();
+                    cbo.Descripcion = values[1].ToString();    
+                }
+                
+                list.Add(cbo);
+            }
             return list;
         }
 

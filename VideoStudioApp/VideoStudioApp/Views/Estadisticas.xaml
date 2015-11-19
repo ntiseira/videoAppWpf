@@ -57,11 +57,67 @@
                 <TextBlock Grid.Column="0"  Grid.Row="4"  HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Municipio:"/></TextBlock>
                 <TextBlock Grid.Column="0"  Grid.Row="5" HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Colonia:"/></TextBlock>
 
-                <ComboBox  Grid.Column="1"  Grid.Row="0"   HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3" />
-                <ComboBox Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
-                <ComboBox Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
-                <ComboBox Grid.Column="1"  Grid.Row="3" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
-                <ComboBox Grid.Column="1"  Grid.Row="4" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,-2" Grid.RowSpan="2"/>
+                <ComboBox  Grid.Column="1"  Grid.Row="0" FontSize="30"
+                            ItemsSource="{Binding Path=ListaBrigadas}"
+                      DisplayMemberPath="Descripcion" 
+                      SelectedValue="{Binding Path=ReporteCurrent.Brigada}"
+                           HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3" />
+                <ComboBox Grid.Column="1" FontSize="30"
+                          ItemsSource="{Binding Path=ListaLugares}"
+                      DisplayMemberPath="Descripcion" 
+                      SelectedValue="{Binding Path=ReporteCurrent.Lugar}"
+                          Grid.Row="1" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"
+                          
+                           >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+
+                <ComboBox Grid.Column="1"   FontSize="30"
+                          ItemsSource="{Binding Path=ListaEdades}"
+                      DisplayMemberPath="Descripcion" 
+                      SelectedValue="{Binding Path=ReporteCurrent.Edad}"
+                          Grid.Row="2" HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"
+                          
+                           >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+
+                <ComboBox Grid.Column="1" FontSize="30"
+                             ItemsSource="{Binding Path=ListaMunicipios}"
+                      DisplayMemberPath="Descripcion" 
+                      SelectedValue="{Binding Path=ReporteCurrent.Municipio}"
+                          Grid.Row="3" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"
+                          
+                           >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+
+                <ComboBox Grid.Column="1"  FontSize="30"
+                             ItemsSource="{Binding Path=ListaColonias}"
+                      DisplayMemberPath="Descripcion" 
+                      SelectedValue="{Binding Path=ReporteCurrent.Colonia}"
+                          Grid.Row="4" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,-2" Grid.RowSpan="2"
+                          
+                           >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                
             </Grid>
         </StackPanel>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="384,0,320,70" Height="75" Width="320">

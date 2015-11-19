@@ -3,11 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
         WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
         Title="ConfigDispositivos" Height="768" Width="1024">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="339" Width="400" Margin="58,28,58,44">
-            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedVideoDevice}" DisplayMemberPath="Name" ItemsSource="{Binding Path=VideoDevices}" Height="29"  VerticalAlignment="Top" Width="309"/>
-            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="27"  Margin="0,30" VerticalAlignment="Top" Width="309"/>
-            <Button Content="Preview" Command="{Binding IniciarPreviewCommand}" HorizontalAlignment="Center" Height="47" Margin="0,30" VerticalAlignment="Top" Width="112"/>
+    <Grid Background="#FFC9C9C9">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="361.388" Width="640.298" Margin="213.493,206.5,170.209,200.112">
+            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedVideoDevice}" DisplayMemberPath="Name" ItemsSource="{Binding Path=VideoDevices}" Height="55"  VerticalAlignment="Top" Width="600"/>
+            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="55"  Margin="0,30" VerticalAlignment="Top" Width="600"/>
+            
+
+            <Border BorderBrush="#FF000000" HorizontalAlignment="Center" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                <Button Content="Preview"     CommandParameter="{Binding ElementName=This}"
+                Command="{Binding IniciarPreviewCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
+            </Border>
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -3,30 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
         WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
         Title="Reportes" Height="768" Width="1024" >
-    <Grid>
+    <Grid Background="#FFC9C9C9">
         <Button VerticalAlignment="Top"  HorizontalAlignment="Right" Command="{Binding RegresarCommand}" Margin="50,30" Height="31" Width="85" Content="Cerrar Sesión"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="393" Margin="56,32,55,25"  >
-            
-            <DockPanel>
-            <DatePicker  HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="153"/>
-            <DatePicker HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="153"/>
-            <Label Content="Reportes"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="53"  VerticalAlignment="Top" Width="209"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="439.269"  Width="697" Margin="163.5,141.231,163.5,187.5"  >
 
-            <TextBlock ><Run Text="Brigada:"/></TextBlock>
-            <TextBlock ><Run Text="Lugar:"/></TextBlock>
-            <TextBlock ><Run Text="Edad:"/></TextBlock>
-            <TextBlock  ><Run Text="Municipio:"/></TextBlock>
-            <TextBlock ><Run Text="Colonia:"/></TextBlock>
+            <Label Content="Reportes"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="61.955"  VerticalAlignment="Top" FontSize="40" Width="210" Margin="243.5,0"/>
 
-            <ComboBox HorizontalAlignment="Left" Height="23" Margin="151,176,0,0" VerticalAlignment="Top" Width="329"/>
-            <ComboBox HorizontalAlignment="Left" Height="23" Margin="151,214,0,0" VerticalAlignment="Top" Width="329"/>
-            <ComboBox HorizontalAlignment="Left" Height="23" Margin="151,255,0,0" VerticalAlignment="Top" Width="329"/>
-            <ComboBox HorizontalAlignment="Left" Height="23" Margin="151,297,0,0" VerticalAlignment="Top" Width="329"/>
-            <ComboBox HorizontalAlignment="Left" Height="23" Margin="151,345,0,0" VerticalAlignment="Top" Width="329"/>
-            <Button Content="Excel" HorizontalAlignment="Left" Height="37" Margin="223,392,0,0" VerticalAlignment="Top" Width="61"/>
-            <Button Content="PDF" HorizontalAlignment="Left" Height="37" Margin="327,392,0,0" VerticalAlignment="Top" Width="61"/>
-            </DockPanel>
+            <Grid Margin="10,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="291" />
+                    <ColumnDefinition Width="121" />
+                </Grid.ColumnDefinitions>
+
+                <WrapPanel  Grid.Column="1"  Grid.Row="0" Margin="0,0,-274,0" >
+                    <DatePicker HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="180"/>
+                    <DatePicker HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="180" Margin="0,0,-58,0"/>
+                </WrapPanel>
+                <TextBlock Grid.Column="0"  Grid.Row="1"  Width="200" FontSize="35" TextAlignment="Right" HorizontalAlignment="Right" ><Run Text="Brigada:"/></TextBlock>
+                <TextBlock Grid.Column="0"  Grid.Row="2"  Width="200" FontSize="35" TextAlignment="Right" HorizontalAlignment="Right"><Run Text="Lugar:"/></TextBlock>
+                <TextBlock Grid.Column="0"  Grid.Row="3"  HorizontalAlignment="Right"  Width="200" FontSize="35" TextAlignment="Right"><Run Text="Edad:"/></TextBlock>
+                <TextBlock Grid.Column="0"  Grid.Row="4"  HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Municipio:"/></TextBlock>
+                <TextBlock Grid.Column="0"  Grid.Row="5" HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Colonia:"/></TextBlock>
+
+                <ComboBox  Grid.Column="1"  Grid.Row="1"  HorizontalAlignment="Left" Height="55" VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+                <ComboBox Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+                <ComboBox Grid.Column="1"  Grid.Row="3" HorizontalAlignment="Left" Height="55" VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+                <ComboBox Grid.Column="1"  Grid.Row="4" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+                <ComboBox Grid.Column="1"  Grid.Row="5" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+            </Grid>
         </StackPanel>
-
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="395.179,0,372.791,30" Height="96.701" Width="256.03">
+        <Button Content="Excel"  Height="56.403"   Width="108.761" Background="#FF038309" Foreground="White" FontSize="24"/>
+            <Button Content="PDF"  Height="53.417"  Margin="20,0" Width="101.299" FontSize="24" Foreground="#FFFFFCFC" Background="#FFAC1212"/>
+        </WrapPanel>
     </Grid>
 </Window>

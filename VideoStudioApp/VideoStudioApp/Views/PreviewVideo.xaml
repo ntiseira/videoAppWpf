@@ -5,7 +5,7 @@
         xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"         
         
        Title="GrabacionVideo" Height="768" Width="1024">
-    <Grid>
+    <Grid Background="#FFC9C9C9">
         <cam:Webcam Name="WebcamCtrl" Width="640" Height="480" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="79,28,72,116"/>
         <WrapPanel Margin="0,596,48,0" HorizontalAlignment="Center">
 

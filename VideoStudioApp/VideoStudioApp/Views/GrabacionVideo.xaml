@@ -4,7 +4,7 @@
       WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
          xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"  
         Title="GrabacionVideo" Height="768" Width="1024">
-    <Grid>
+    <Grid Background="#FFC9C9C9">
         <cam:Webcam Name="WebcamCtrl" Width="640" Height="480" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="79,28,72,116"/>
       
         <Button Content="Grabar" 

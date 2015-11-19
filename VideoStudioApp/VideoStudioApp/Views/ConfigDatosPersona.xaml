@@ -3,37 +3,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
         WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
         Title="ConfigDatosPersona" Height="768" Width="1024">
-    <Grid>
+    <Grid Background="#FFC9C9C9">
 
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
-            <Border BorderThickness="1" BorderBrush="Black">
-                <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center" Width="226" Height="54">Nombre</TextBlock>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="226.59,260.045,214.649,269" Width="582.761" Height="238.955" >
+            <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
+                <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="333" Height="54" FontSize="35" BorderThickness="2">Nombre</TextBox>
             </Border>
 
-            <TextBlock   HorizontalAlignment="Left" Margin="0,30"  VerticalAlignment="Center" Width="226" Height="54">Edad</TextBlock>
+             
+            <TextBox   HorizontalAlignment="Center" Margin="0,30"  VerticalAlignment="Center" FontSize="35" Width="333" Height="54" BorderBrush="#FF010204" BorderThickness="2">Edad</TextBox>
 
-            <Button  Command="{Binding IniciarGrabacionCommand}" HorizontalAlignment="Left" Margin="0,20"  VerticalAlignment="Center" Width="226" 
-                     Height="54">Iniciar</Button>
+
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8" HorizontalAlignment="Center">
+                <Button Content="Iniciar"    
+                Command="{Binding IniciarGrabacionCommand}" HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" 
+                        Foreground="#FFFDFDFD" FontSize="30" />
+            </Border>
+          
         </StackPanel>
 
 
       
-            <WrapPanel Margin="24,0,0,27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="92">
+            <WrapPanel Margin="24,0,0,27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="200" Width="350">
                 
             
             <StackPanel  DockPanel.Dock="Left" >
-                <TextBlock Width="80"  TextAlignment="Right">Brigada:</TextBlock>
-                <TextBlock  Width="80" TextAlignment="Right">Lugar:</TextBlock>
-                <TextBlock  Width="80" TextAlignment="Right">Municipio:</TextBlock>
-                <TextBlock Width="80" TextAlignment="Right">Colonia:</TextBlock>                
+                <TextBlock Width="125"  TextAlignment="Right" FontSize="24">Brigada:</TextBlock>
+                <TextBlock  Width="121.791" TextAlignment="Right" FontSize="24">Lugar:</TextBlock>
+                <TextBlock  Width="121.791" TextAlignment="Right" FontSize="24">Municipio:</TextBlock>
+                <TextBlock Width="120.299" TextAlignment="Right" FontSize="24">Colonia:</TextBlock>                
             </StackPanel>
 
             <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0" Width="142" >
-                <TextBlock Width="145"  >A1</TextBlock>
-                <TextBlock  Width="145" > Jardín Tepames</TextBlock>
-                <TextBlock  Width="145" >Tecomán</TextBlock>
-                <TextBlock Width="145" >Colonia</TextBlock>
+                <TextBlock Width="145" FontSize="24"  >A1</TextBlock>
+                <TextBlock  Width="145" FontSize="24" > Jardín Tepames</TextBlock>
+                <TextBlock  Width="145" FontSize="24" >Tecomán</TextBlock>
+                <TextBlock Width="145" FontSize="24" >Colonia</TextBlock>
             </StackPanel>
             </WrapPanel>
         

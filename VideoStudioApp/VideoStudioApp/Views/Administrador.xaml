@@ -4,26 +4,33 @@
       xmlns:w="clr-namespace:VideoStudioApp.Helper"
         xmlns:local="clr-namespace:VideoStudioApp"
         Title="Administrador" Height="768" Width="1024" WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" >
-    
-<Grid>
 
-        <Button Content="Regresar"  Command="{Binding RegresarCommand}"  HorizontalAlignment="Left" Height="41" Margin="40,26,0,0" VerticalAlignment="Top" Width="98"/>
+    <Grid Background="#FFC9C9C9">
 
+        <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+            <Button Content="Regresar"  Command="{Binding RegresarCommand}" 
+                    HorizontalAlignment="Left" Height="41" Margin="40,26,0,0" 
+                    VerticalAlignment="Top" Width="98"/>
+        </Border>
+        
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
             <Border BorderThickness="1" BorderBrush="Black">
-                <TextBlock Text="{Binding User}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="226" Height="54">User</TextBlock>
+                <TextBox Text="{Binding User}" FontSize="35"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="332" Height="75" BorderThickness="2"></TextBox>
             </Border>
 
           
-            <PasswordBox local:PasswordHelper.Attach="True" 
+            <PasswordBox local:PasswordHelper.Attach="True"  Margin="0,50"
                   local:PasswordHelper.Password="{Binding Text, ElementName=plain, Mode=TwoWay}" 
-                 Width="223" Height="44"/>
+                 Width="333" Height="69" BorderBrush="#FF03050E" BorderThickness="2" FontSize="35"/>
+                
             <TextBlock Padding="10,0" x:Name="plain"  Visibility="Hidden"  Text="{Binding PasswordInVM}" />
-          
-      
-            <Button  CommandParameter="{Binding ElementName=This}"
-                Command="{Binding LoginCommand}"  HorizontalAlignment="Left" Margin="0,20"  
-                     VerticalAlignment="Center" Width="226" Height="54">Login</Button>
+       
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                <Button Content="Login"     CommandParameter="{Binding ElementName=This}"
+                Command="{Binding LoginCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
+            </Border>
+            
+
         </StackPanel>
     </Grid>
 </Window>

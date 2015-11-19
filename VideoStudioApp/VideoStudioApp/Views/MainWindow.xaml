@@ -4,11 +4,15 @@
         WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
         Loaded="Window_Loaded"
         Title="MainWindow" Height="768" Width="1024" >
-    <Grid>
+    <Grid Background="#FFC9C9C9">
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="108,81,88,92" Width="329" Height="177">
-            <Button Content="Admin"    Command="{Binding IniciarAdminCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="329" Height="54"/>
-            <Button Content="App"    Command="{Binding IniciarAppCommand}" HorizontalAlignment="Left" Margin="0,30"  VerticalAlignment="Center" Width="329" Height="52"/>
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                <Button Content="Admin"    Command="{Binding IniciarAdminCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="21.333" />
+            </Border>
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8" Margin="0,30"  >
+                <Button Content="App"    Command="{Binding IniciarAppCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="329" Height="52" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="21.333" />
+            </Border>
         </StackPanel>
     </Grid>
 </Window>

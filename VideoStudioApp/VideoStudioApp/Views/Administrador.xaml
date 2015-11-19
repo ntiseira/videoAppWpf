@@ -1,0 +1,29 @@
+﻿<Window x:Class="VideoStudioApp.Views.Administrador"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
+      xmlns:w="clr-namespace:VideoStudioApp.Helper"
+        xmlns:local="clr-namespace:VideoStudioApp"
+        Title="Administrador" Height="768" Width="1024" WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" >
+    
+<Grid>
+
+        <Button Content="Regresar"  Command="{Binding RegresarCommand}"  HorizontalAlignment="Left" Height="41" Margin="40,26,0,0" VerticalAlignment="Top" Width="98"/>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
+            <Border BorderThickness="1" BorderBrush="Black">
+                <TextBlock Text="{Binding User}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="226" Height="54">User</TextBlock>
+            </Border>
+
+          
+            <PasswordBox local:PasswordHelper.Attach="True" 
+                  local:PasswordHelper.Password="{Binding Text, ElementName=plain, Mode=TwoWay}" 
+                 Width="223" Height="44"/>
+            <TextBlock Padding="10,0" x:Name="plain"  Visibility="Hidden"  Text="{Binding PasswordInVM}" />
+          
+      
+            <Button  CommandParameter="{Binding ElementName=This}"
+                Command="{Binding LoginCommand}"  HorizontalAlignment="Left" Margin="0,20"  
+                     VerticalAlignment="Center" Width="226" Height="54">Login</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="VideoStudioApp.Views.ConfigDatosLugar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
+        WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
+        Title="ConfigDatosLugar" Height="768" Width="1024">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="372" Width="473" Margin="272,167,279,229">
+            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedVideoDevice}" DisplayMemberPath="Name" ItemsSource="{Binding Path=VideoDevices}" Height="29"  VerticalAlignment="Top" Width="309"/>
+            <TextBox Margin="0,30" Height="29"  VerticalAlignment="Top" Width="309"></TextBox>
+            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="27"  Margin="0,10" VerticalAlignment="Top" Width="309"/>
+            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="27"  Margin="0,10" VerticalAlignment="Top" Width="309"/>
+            <TextBox Margin="0,20" Height="29"  VerticalAlignment="Top" Width="309"></TextBox>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button Content="Menu" Command="{Binding RegresarMenuCommand}" HorizontalAlignment="Right" Height="47" Margin="30,20" VerticalAlignment="Bottom" Width="112"/>
+            <Button Content="Config" Command="{Binding RegresarPreviewCommand}" HorizontalAlignment="Right" Height="47" Margin="30,5" VerticalAlignment="Bottom" Width="112"/>
+        </StackPanel>
+        <Button Content="Aceptar" Command="{Binding IniciarConfigDatosPersonaCommand}" HorizontalAlignment="Right" Height="47" Margin="30,30" VerticalAlignment="Bottom" Width="112"/>
+    </Grid>
+</Window>

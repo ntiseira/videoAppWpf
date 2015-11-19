@@ -1,0 +1,68 @@
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.exe.config
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.exe
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.pdb
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.dll
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Utilities.dll
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Types.dll
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.xml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Utilities.xml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Types.xml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Administrador.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosLugar.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosPersona.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDispositivos.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\GrabacionVideo.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\MainWindow.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\PreviewVideo.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Estadisticas.baml
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Administrador.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosLugar.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosPersona.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDispositivos.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\GrabacionVideo.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\MainWindow.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\PreviewVideo.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Estadisticas.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\App.g.cs
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp_MarkupCompile.cache
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.g.resources
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.Properties.Resources.resources
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.csproj.GenerateResource.Cache
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.exe
+C:\Users\Nicolas\Desktop\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.pdb
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.exe.config
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.exe
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.pdb
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.exe
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\VideoStudioApp.pdb
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.dll
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\WebcamControl.dll
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Utilities.dll
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Types.dll
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\WebcamControl.xml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.xml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Utilities.xml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\bin\Release\Microsoft.Expression.Encoder.Types.xml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.csprojResolveAssemblyReference.cache
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosLugar.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosPersona.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDispositivos.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\GrabacionVideo.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\MainWindow.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\PreviewVideo.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Estadisticas.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Administrador.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosLugar.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDatosPersona.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\ConfigDispositivos.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\GrabacionVideo.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\MainWindow.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\PreviewVideo.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Estadisticas.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\App.g.cs
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp_MarkupCompile.cache
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp_MarkupCompile.lref
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\Views\Administrador.baml
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.g.resources
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.Properties.Resources.resources
+C:\Users\ntiseira\Desktop\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Release\VideoStudioApp.csproj.GenerateResource.Cache

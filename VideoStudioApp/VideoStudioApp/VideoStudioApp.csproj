@@ -77,6 +77,7 @@
     <Compile Include="Data Access\MySqlDataAccess.cs" />
     <Compile Include="Helper\ExportToExcel.cs" />
     <Compile Include="Helper\ExportToPdf.cs" />
+    <Compile Include="Model\Grabacion.cs" />
     <Compile Include="PasswordHelper.cs" />
     <Compile Include="Model\ComboBoxD.cs" />
     <Compile Include="Model\ModelBase.cs" />

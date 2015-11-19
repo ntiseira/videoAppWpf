@@ -58,3 +58,23 @@ C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video A
 C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.dll
 C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.xml
 C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.pdb
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\WebcamControl.dll
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\WebcamControl.pdb
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\WebcamControl.xml
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Api2.dll
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.dll
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Types.dll
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Utilities.dll
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.xml
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Api2.xml
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Types.xml
+C:\videoApp\VideoStudioApp\WebcamControl\bin\Debug\Microsoft.Expression.Encoder.Utilities.xml
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\Webcam.baml
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\Webcam.g.vb
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl_MarkupCompile.cache
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.g.resources
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.Resources.resources
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.vbproj.GenerateResource.Cache
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.dll
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.xml
+C:\videoApp\VideoStudioApp\WebcamControl\obj\Debug\WebcamControl.pdb

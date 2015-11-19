@@ -6,14 +6,28 @@
         
        Title="GrabacionVideo" Height="768" Width="1024">
     <Grid Background="#FFC9C9C9">
-        <cam:Webcam Name="WebcamCtrl" Width="640" Height="480" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="79,28,72,116"/>
-        <WrapPanel Margin="0,596,48,0" HorizontalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"  Width="640" Height="480" >
+                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="79,28,72,116"/>
+            </Border>
+        </StackPanel>
+        <WrapPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="472"  Margin="0,60">
 
-            <Button Content="Cancelar" 
-                Command="{Binding CancelarCommand}" HorizontalAlignment="Center"  Width="154" />
-            <Button Content="Aceptar" 
-                Command="{Binding IniciarConfigDatosLugarCommand}" HorizontalAlignment="Right"  
-                VerticalAlignment="Top" Width="122" Height="54" />
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                <Button Content="Cancelar"
+                Command="{Binding CancelarCommand}" HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Width="200" Height="54" Background="Red" 
+                        Foreground="#FFFDFDFD" FontSize="30" />
+            </Border>
+
+            <Border BorderBrush="#FF000000"  Margin="30,0" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                <Button Content="Aceptar"
+                Command="{Binding IniciarConfigDatosLugarCommand}" HorizontalAlignment="Right"
+                        VerticalAlignment="Center" Width="200" Height="54" Background="#FF0E18E8" 
+                        Foreground="#FFFDFDFD" FontSize="30" />
+            </Border>
+
+          
         </WrapPanel>
     </Grid>
 </Window>

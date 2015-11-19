@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using VideoStudioApp.Command;
+using VideoStudioApp.Model;
 using VideoStudioApp.Views;
 
 namespace VideoStudioApp.ViewModel
@@ -16,9 +17,9 @@ namespace VideoStudioApp.ViewModel
 
         public Window Home { get; set; }
        public Window CurrentWindow { get; set; }
+       public Grabacion GrabacionVideoCurrent { get; set; }
 
-      
-        public EncoderDevice SelectedVideo { get; set; }
+       public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
 
@@ -28,6 +29,7 @@ namespace VideoStudioApp.ViewModel
             CurrentWindow = current;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
+            GrabacionVideoCurrent = new Grabacion();
         }
 
 

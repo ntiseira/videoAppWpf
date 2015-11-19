@@ -27,7 +27,8 @@
        
             <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
                 <Button Content="Login"     CommandParameter="{Binding ElementName=This}"
-                Command="{Binding LoginCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
+                Command="{Binding LoginCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                        Width="329" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
             </Border>
             
 

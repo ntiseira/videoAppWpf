@@ -3,30 +3,53 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
         WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
         Title="Reportes" Height="768" Width="1024" >
-    <Grid Background="#FFC9C9C9">
+
+    <Window.Resources>
+        <Style x:Key="styleCalendar" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <!-- Wrapping in ViewBox will enlarge calendar of that size.-->
+                        <Viewbox Height="400"
+                         Width="400">
+                            <CalendarItem x:Name="PART_CalendarItem"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"/>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        </Window.Resources>
+
+            <Grid Background="#FFC9C9C9">
+        
         <Button VerticalAlignment="Top"  HorizontalAlignment="Right" Command="{Binding RegresarCommand}" Margin="50,30" Height="31" Width="85" Content="Cerrar Sesión"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="439.269"  Width="697" Margin="163.5,141.231,163.5,187.5"  >
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"   Width="696" Margin="164,98,164,156" Height="514"  >
 
             <Label Content="Reportes"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="61.955"  VerticalAlignment="Top" FontSize="40" Width="210" Margin="243.5,0"/>
 
-            <Grid Margin="10,20">
+            <Grid Margin="10,20" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="291" />
-                    <ColumnDefinition Width="121" />
+                    <ColumnDefinition Width="223" />
+                    <ColumnDefinition Width="263" />
                 </Grid.ColumnDefinitions>
 
                 <WrapPanel  Grid.Column="1"  Grid.Row="0" Margin="0,0,-274,0" >
-                    <DatePicker HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="180"/>
-                    <DatePicker HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="180" Margin="0,0,-58,0"/>
+                    <DatePicker CalendarStyle="{StaticResource styleCalendar}" HorizontalAlignment="Left" Height="40"  VerticalAlignment="Top" Width="228" FontSize="20"/>
+                    <DatePicker CalendarStyle="{StaticResource styleCalendar}" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="228" Margin="0,0,-58,0" FontSize="20"/>
                 </WrapPanel>
                 <TextBlock Grid.Column="0"  Grid.Row="1"  Width="200" FontSize="35" TextAlignment="Right" HorizontalAlignment="Right" ><Run Text="Brigada:"/></TextBlock>
                 <TextBlock Grid.Column="0"  Grid.Row="2"  Width="200" FontSize="35" TextAlignment="Right" HorizontalAlignment="Right"><Run Text="Lugar:"/></TextBlock>
@@ -34,16 +57,30 @@
                 <TextBlock Grid.Column="0"  Grid.Row="4"  HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Municipio:"/></TextBlock>
                 <TextBlock Grid.Column="0"  Grid.Row="5" HorizontalAlignment="Right" Width="200" FontSize="35" TextAlignment="Right"><Run Text="Colonia:"/></TextBlock>
 
-                <ComboBox  Grid.Column="1"  Grid.Row="1"  HorizontalAlignment="Left" Height="55" VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
-                <ComboBox Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
-                <ComboBox Grid.Column="1"  Grid.Row="3" HorizontalAlignment="Left" Height="55" VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
-                <ComboBox Grid.Column="1"  Grid.Row="4" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
-                <ComboBox Grid.Column="1"  Grid.Row="5" HorizontalAlignment="Left" Height="55"  VerticalAlignment="Center" Width="386" Margin="0,14,-264,14"/>
+                <ComboBox  Grid.Column="1"  Grid.Row="0"   HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3" />
+                <ComboBox Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
+                <ComboBox Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
+                <ComboBox Grid.Column="1"  Grid.Row="3" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,48" Grid.RowSpan="3"/>
+                <ComboBox Grid.Column="1"  Grid.Row="4" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Center" Width="453" Margin="0,48,-189,-2" Grid.RowSpan="2"/>
             </Grid>
         </StackPanel>
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="395.179,0,372.791,30" Height="96.701" Width="256.03">
-        <Button Content="Excel"  Height="56.403"   Width="108.761" Background="#FF038309" Foreground="White" FontSize="24"/>
-            <Button Content="PDF"  Height="53.417"  Margin="20,0" Width="101.299" FontSize="24" Foreground="#FFFFFCFC" Background="#FFAC1212"/>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="384,0,320,70" Height="75" Width="320">
+
+
+            <StackPanel>
+                <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                    <Button Content="Excel"  Height="60"   Width="110" Background="#FF038309"
+                            Foreground="White" FontSize="24"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="40,0" >
+                <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+                    <Button Content="PDF"  Height="60"   Width="110" FontSize="24" Foreground="#FFFFFCFC" Background="#FFAC1212"/>
+                </Border>
+            </StackPanel>
+
+
         </WrapPanel>
     </Grid>
 </Window>

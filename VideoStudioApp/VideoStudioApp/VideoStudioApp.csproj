@@ -51,6 +51,14 @@
     <Reference Include="MySql.Data">
       <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="NReco, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.2.0.3.0\lib\net40\NReco.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NReco.VideoConverter, Version=1.0.8.0, Culture=neutral, PublicKeyToken=395ccb334978a0cd, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.VideoConverter.1.0.8.0\lib\net20\NReco.VideoConverter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -77,6 +85,7 @@
     <Compile Include="Data Access\MySqlDataAccess.cs" />
     <Compile Include="Helper\ExportToExcel.cs" />
     <Compile Include="Helper\ExportToPdf.cs" />
+    <Compile Include="Helper\WaterMark.cs" />
     <Compile Include="Model\Grabacion.cs" />
     <Compile Include="PasswordHelper.cs" />
     <Compile Include="Model\ComboBoxD.cs" />

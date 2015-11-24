@@ -37,9 +37,29 @@ namespace VideoStudioApp.Business
         }
 
 
-        
+        public void AgregarColonia(string colonia, string municipio)
+        {
+            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+            OrderedDictionary listParam = new OrderedDictionary();
+            listParam.Add("nombreColonia", colonia);
+            listParam.Add("nombreMunicipio", municipio);
 
-       public List<ComboBoxD> GetMunicipios()
+            var data = mysqlAccess.ExecuteProcedure("AgregarColonia", listParam);
+        }
+
+
+        public void AgregarLugar(string lugar)
+        {
+            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+            OrderedDictionary listParam = new OrderedDictionary();
+            listParam.Add("nombreLugar", lugar);
+
+            var data = mysqlAccess.ExecuteProcedure("AgregarLugar", listParam);
+        }
+
+
+
+        public List<ComboBoxD> GetMunicipios()
         {
             List<ComboBoxD> list = new List<ComboBoxD>();
             MySqlDataAccess mysqlAccess = new MySqlDataAccess();

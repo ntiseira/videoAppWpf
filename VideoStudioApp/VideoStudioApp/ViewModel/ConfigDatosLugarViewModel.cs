@@ -64,9 +64,56 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarConfigDatosPersona()
         {
-            this.CurrentWindow.Close();
-            ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo);
-            viewGra.ShowDialog();
+
+            AppManager appManager = new AppManager();
+      
+
+            if (GrabacionVideoCurrent.Colonia == "Colonia-Otros")
+            {
+                if (GrabacionVideoCurrent.OtrosColonia == null || GrabacionVideoCurrent.Municipio == null)
+                {
+                    System.Windows.MessageBox.Show("Debe ingresar una colonia ");
+
+                }
+                else
+                {
+                    if (GrabacionVideoCurrent.Municipio != null && GrabacionVideoCurrent.Brigada != null &&
+                        GrabacionVideoCurrent.Colonia != null && GrabacionVideoCurrent.Lugar != null)
+                    {
+                        appManager.AgregarColonia(GrabacionVideoCurrent.OtrosColonia, GrabacionVideoCurrent.Municipio);
+                        appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
+
+                        this.CurrentWindow.Close();
+                        ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo,
+                            GrabacionVideoCurrent);
+                        viewGra.ShowDialog();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Por favor complete todos los datos");
+                    }
+                }
+
+            }
+            else
+            {
+                  if (GrabacionVideoCurrent.Municipio != null && GrabacionVideoCurrent.Brigada != null &&
+                        GrabacionVideoCurrent.Colonia != null && GrabacionVideoCurrent.Lugar != null)
+                    {
+                appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
+
+                this.CurrentWindow.Close();
+                ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo, GrabacionVideoCurrent);
+                viewGra.ShowDialog();
+                    }
+                  else
+                  {
+                      System.Windows.MessageBox.Show("Por favor complete todos los datos");
+                  }
+            }
+
+
+          
         }
 
 

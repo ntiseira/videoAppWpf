@@ -8,6 +8,22 @@ namespace VideoStudioApp.Model
 {
     public class Grabacion : ModelBase
     {
+        private string nombre;
+        public string Nombre
+        {
+            get
+            {
+                return nombre;
+            }
+            set
+            {
+                if (nombre != value)
+                {
+                    nombre = value;
+                    OnPropertyChanged("Nombre");
+                }
+            }
+        }
 
         private string edad;
         public string Edad

@@ -25,7 +25,7 @@ namespace VideoStudioApp.ViewModel
         {
             //CurrentWindow = window;
             Home = home;
-            Prueba();
+         //   Prueba();
         }
 
         public void Prueba()

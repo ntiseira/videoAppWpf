@@ -49,9 +49,11 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarGrabacion()
         {
-            this.CurrentWindow.Close();
+            Home.Hide();
             GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
+            this.CurrentWindow.Close();
+           
         }
 
 

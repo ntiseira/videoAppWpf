@@ -36,47 +36,29 @@ namespace VideoStudioApp.ViewModel
             CargarVideo();
             
         }
-
-
-
+                
         public void CargarVideo()
         {
             try
             {
-
-
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
 
+                string path = "C:\\Videos"; // your code goes here
+                bool exists = System.IO.Directory.Exists(path);
 
-                /*
-            ' Create directory for saving video files
-            Dim videoPath As String = "C:\VideoClips"
-
-            If Not Directory.Exists(videoPath) Then
-                Directory.CreateDirectory(videoPath)
-            End If
-            ' Create directory for saving image files
-            Dim imagePath As String = "C:\WebcamSnapshots"
-
-            If Not Directory.Exists(imagePath) Then
-                Directory.CreateDirectory(imagePath)
-            End If
-
-                 * */
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(path);           
 
                 //' Set some properties of the Webcam control
-                WebcamCtrl.VideoDirectory = "C:\\prueba";
-                WebcamCtrl.ImageDirectory = "C:\\prueba";
+                WebcamCtrl.VideoDirectory = "C:\\Videos";
+                WebcamCtrl.ImageDirectory = "C:\\Videos";
                 WebcamCtrl.FrameRate = 30;
 
                 System.Drawing.Size size = new System.Drawing.Size(640, 480);
                 WebcamCtrl.FrameSize = size;
-                //new Size(640, 480);
-
-
+               
                 WebcamCtrl.StartPreview();
-
 
             }
             catch (Exception ex)
@@ -85,6 +67,29 @@ namespace VideoStudioApp.ViewModel
             }
         }
 
+
+
+
+        private ICommand cancelarCommand;
+        public ICommand CancelarCommand
+        {
+            get
+            {
+                if (cancelarCommand == null)
+                {
+                    cancelarCommand = new RelayCommand(
+                        param => this.Cancelar()
+                    );
+                }
+                return cancelarCommand;
+            }
+        }
+
+        public void Cancelar()
+        {
+            Home.ShowDialog();
+            CurrentWindow.Close();        
+        }
 
 
         private ICommand iniciarConfigDatosLugarCommand;
@@ -104,9 +109,11 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarConfigDatosLugar()
         {
-            this.CurrentWindow.Close();
+            Home.Hide();
             ConfigDatosLugar viewGra = new ConfigDatosLugar(this.Home, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
+            this.CurrentWindow.Close();
+           
         }
 
 

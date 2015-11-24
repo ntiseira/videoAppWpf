@@ -25,7 +25,7 @@ namespace VideoStudioApp.ViewModel
         {
             //CurrentWindow = window;
             Home = home;
-            Prueba();
+          //  Prueba();
         }
 
         public void Prueba()
@@ -93,6 +93,7 @@ namespace VideoStudioApp.ViewModel
             this.Home.Hide();
             ConfigDispositivos admin = new ConfigDispositivos(this.Home);
             admin.ShowDialog();
+          
         }
 
 

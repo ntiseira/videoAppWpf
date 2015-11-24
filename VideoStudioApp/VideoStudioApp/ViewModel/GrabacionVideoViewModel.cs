@@ -55,10 +55,8 @@ namespace VideoStudioApp.ViewModel
         {
            
             WebcamCtrl.StartRecording();
-
             //Espera 20 segundoss y detiene
             Thread.Sleep(20000);
-
             WebcamCtrl.StopPreview();                        
         }
 
@@ -68,41 +66,24 @@ namespace VideoStudioApp.ViewModel
         {
             try
             {
-
-
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
 
+                string path = "C:\\Videos"; // your code goes here
+                bool exists = System.IO.Directory.Exists(path);
 
-                /*
-            ' Create directory for saving video files
-            Dim videoPath As String = "C:\VideoClips"
-
-            If Not Directory.Exists(videoPath) Then
-                Directory.CreateDirectory(videoPath)
-            End If
-            ' Create directory for saving image files
-            Dim imagePath As String = "C:\WebcamSnapshots"
-
-            If Not Directory.Exists(imagePath) Then
-                Directory.CreateDirectory(imagePath)
-            End If
-
-                 * */
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(path);
 
                 //' Set some properties of the Webcam control
-                WebcamCtrl.VideoDirectory = "C:\\prueba";
-                WebcamCtrl.ImageDirectory = "C:\\prueba";
+                WebcamCtrl.VideoDirectory = "C:\\Videos";
+                WebcamCtrl.ImageDirectory = "C:\\Videos";
                 WebcamCtrl.FrameRate = 30;
 
                 System.Drawing.Size size = new System.Drawing.Size(640, 480);
-                WebcamCtrl.FrameSize = size;
-                    //new Size(640, 480);
-
+                WebcamCtrl.FrameSize = size;                
 
                 WebcamCtrl.StartPreview();
-
-
             }
             catch (Exception ex)
             {

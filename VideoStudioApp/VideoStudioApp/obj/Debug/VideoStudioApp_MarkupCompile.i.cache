@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\videoApp\VideoStudioApp\VideoStudioApp\obj\Debug\
+D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\
 VideoStudioApp
 none
 false
 DEBUG;TRACE
-C:\videoApp\VideoStudioApp\VideoStudioApp\App.xaml
+D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\App.xaml
 81297557075
 
-371753674810
-21957461567
+37886194554
+212123775474
 Views\Administrador.xaml;Views\ConfigDatosLugar.xaml;Views\ConfigDatosPersona.xaml;Views\ConfigDispositivos.xaml;Views\GrabacionVideo.xaml;Views\MainWindow.xaml;Views\PreviewVideo.xaml;Views\Estadisticas.xaml;
 
 False

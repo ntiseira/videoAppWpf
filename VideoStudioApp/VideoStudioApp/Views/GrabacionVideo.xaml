@@ -7,7 +7,7 @@
     <Grid Background="#FFC9C9C9">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"  Width="640" Height="480" >
-                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="79,28,72,116"/>
+                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="6,6,6,0" Height="460"/>
             </Border>
         </StackPanel>
 
@@ -16,12 +16,12 @@
                 <Button Content="Grabar"    
                 Command="{Binding GrabarCommand}"
                         Width="200" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
-</Border>
-            </StackPanel>
+            </Border>
+        </StackPanel>
 
         <StackPanel Margin="30"  VerticalAlignment="Top" HorizontalAlignment="Left">
-        <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="30,30,30,30">
-            <TextBlock  FontSize="35"  Height="55" TextAlignment="Center" Width="194"> 27:00</TextBlock>
+            <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="30,30,30,30">
+                <TextBlock  FontSize="35"  Height="55" TextAlignment="Center" Width="194"> 27:00</TextBlock>
             </Border>
         </StackPanel>
     </Grid>

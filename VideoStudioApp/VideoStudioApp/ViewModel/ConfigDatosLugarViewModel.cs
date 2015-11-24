@@ -35,7 +35,7 @@ namespace VideoStudioApp.ViewModel
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             GrabacionVideoCurrent = new Grabacion();
-            CargarCombos();
+          //  CargarCombos();
         }
 
        public void CargarCombos()
@@ -64,9 +64,11 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarConfigDatosPersona()
         {
-            this.CurrentWindow.Close();
+            Home.Hide();
             ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
+            this.CurrentWindow.Close();
+ 
         }
 
 

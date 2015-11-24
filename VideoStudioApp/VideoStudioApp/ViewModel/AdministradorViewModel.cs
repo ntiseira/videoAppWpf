@@ -72,9 +72,10 @@ namespace VideoStudioApp.ViewModel
             
             if (manager.ValidateUser("ntiseira", text))
             {
-                this.CurrentWindow.Close();
+                Home.Hide();
                 Estadisticas viewEsta = new Estadisticas(this.Home);
                 viewEsta.ShowDialog();
+                this.CurrentWindow.Close();
             }
             else
             {
@@ -101,9 +102,9 @@ namespace VideoStudioApp.ViewModel
 
 
         private void Regresar()
-        {
+        {         
+            this.Home.ShowDialog();
             this.CurrentWindow.Close();
-            this.Home.Show();
         }
 
 

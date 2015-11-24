@@ -8,12 +8,12 @@
             <ComboBox HorizontalAlignment="Center"  FontSize="30"
                       ItemsSource="{Binding Path=ListaBrigadas}"
                       DisplayMemberPath="Descripcion" 
-                      SelectedValue="{Binding Path=GrabacionVideoCurrent.Brigada}"
+                      Text="{Binding Path=GrabacionVideoCurrent.Brigada}"
                    VerticalAlignment="Top" Width="600" Height="55"   Margin="5.135,0,5.134,0"/>
             <TextBox Margin="0,30" Text="{Binding GrabacionVideoCurrent.Lugar}"  FontSize="30"
                      VerticalAlignment="Top" Width="600" Height="55"></TextBox>
             <ComboBox HorizontalAlignment="Center" FontSize="30"
-                      SelectedValue="{Binding Path=GrabacionVideoCurrent.Municipio}"
+                      Text="{Binding Path=GrabacionVideoCurrent.Municipio}"
                       ItemsSource="{Binding Path=ListaMunicipios}"
                       DisplayMemberPath="Descripcion" 
                       Margin="0,10" VerticalAlignment="Top" Width="600" Height="55"
@@ -26,8 +26,8 @@
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
-            <ComboBox HorizontalAlignment="Center" FontSize="30"
-                      SelectedValue="{Binding Path=GrabacionVideoCurrent.Colonia}" 
+            <ComboBox HorizontalAlignment="Center" FontSize="30" 
+                      Text="{Binding Path=GrabacionVideoCurrent.Colonia}" 
                       ItemsSource="{Binding Path=ListaColonias}"
                       DisplayMemberPath="Descripcion"    Margin="0,10" VerticalAlignment="Top" Width="600" Height="55"
                             >

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using VideoStudioApp.Command;
+using VideoStudioApp.Model;
 using VideoStudioApp.Views;
 
 namespace VideoStudioApp.ViewModel
@@ -20,11 +21,14 @@ namespace VideoStudioApp.ViewModel
       
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
+        public Grabacion SelectedGrabacion { get; set; }
+        
 
-
-        public ConfigDatosPersonaViewModel(Window home, Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
+        public ConfigDatosPersonaViewModel(Window home, Window current, EncoderDevice selectedAudio,
+            EncoderDevice selectedVideo, Grabacion grabacion)
         {
             Home = home;
+            SelectedGrabacion = grabacion;
             CurrentWindow = current;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
@@ -49,11 +53,22 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarGrabacion()
         {
-            Home.Hide();
-            GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo);
-            viewGra.ShowDialog();
-            this.CurrentWindow.Close();
-           
+            if (SelectedGrabacion.Edad == null || SelectedGrabacion.Nombre == null)
+            {
+                System.Windows.MessageBox.Show("Debe ingresar nombre y la edad");       
+            }
+            else
+            {
+                DateTime today = DateTime.Today;
+                int age = today.Year - Convert.ToInt32(SelectedGrabacion.Edad);
+  
+
+                this.CurrentWindow.Close();
+                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo);
+                viewGra.ShowDialog();    
+            }
+
+            
         }
 
 

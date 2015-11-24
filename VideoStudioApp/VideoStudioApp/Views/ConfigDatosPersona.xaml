@@ -8,11 +8,14 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="226.59,260.045,214.649,269" Width="582.761" Height="238.955" >
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
-                <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="333" Height="54" FontSize="35" BorderThickness="2">Nombre</TextBox>
+                <TextBox   Text="{Binding SelectedGrabacion.Nombre}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                           Width="333" Height="54" FontSize="35" BorderThickness="2"></TextBox>
             </Border>
 
-             
-            <TextBox   HorizontalAlignment="Center" Margin="0,30"  VerticalAlignment="Center" FontSize="35" Width="333" Height="54" BorderBrush="#FF010204" BorderThickness="2">Edad</TextBox>
+
+            <TextBox MaxLength="3" Text="{Binding SelectedGrabacion.Edad}" PreviewTextInput="UIElement_OnPreviewTextInput"  HorizontalAlignment="Center" Margin="0,30"
+                     VerticalAlignment="Center" FontSize="35" Width="333" Height="54" BorderBrush="#FF010204" 
+                     BorderThickness="2"></TextBox>
 
 
             <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8" HorizontalAlignment="Center">

@@ -32,7 +32,8 @@ namespace VideoStudioApp.ViewModel
             SelectedVideo = selectedVideo;
             WebcamCtrl = cam;
             CargarVideo();
-            
+            TextTimer = "30:00";
+
         }
 
 
@@ -62,7 +63,21 @@ namespace VideoStudioApp.ViewModel
             WebcamCtrl.StopPreview();                        
         }
 
-       
+
+        private string textTimer;
+        public string TextTimer
+        {
+            get
+            {
+                return textTimer;
+            }
+            set
+            {
+                textTimer = value;
+                OnPropertyChanged("TextTimer");
+            }
+        }
+
 
         public void CargarVideo()
         {

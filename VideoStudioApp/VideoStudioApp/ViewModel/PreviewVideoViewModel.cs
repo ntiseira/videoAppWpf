@@ -43,27 +43,8 @@ namespace VideoStudioApp.ViewModel
         {
             try
             {
-
-
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
-
-
-                /*
-            ' Create directory for saving video files
-            Dim videoPath As String = "C:\VideoClips"
-
-            If Not Directory.Exists(videoPath) Then
-                Directory.CreateDirectory(videoPath)
-            End If
-            ' Create directory for saving image files
-            Dim imagePath As String = "C:\WebcamSnapshots"
-
-            If Not Directory.Exists(imagePath) Then
-                Directory.CreateDirectory(imagePath)
-            End If
-
-                 * */
 
                 //' Set some properties of the Webcam control
                 WebcamCtrl.VideoDirectory = "C:\\prueba";
@@ -72,12 +53,8 @@ namespace VideoStudioApp.ViewModel
 
                 System.Drawing.Size size = new System.Drawing.Size(640, 480);
                 WebcamCtrl.FrameSize = size;
-                //new Size(640, 480);
-
-
+         
                 WebcamCtrl.StartPreview();
-
-
             }
             catch (Exception ex)
             {

@@ -3,6 +3,9 @@ using Microsoft.Expression.Encoder.Live;
 using NReco.VideoConverter;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -12,9 +15,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 using VideoStudioApp.Command;
 using VideoStudioApp.Model;
+using VideoStudioApp.Views;
 using WebcamControl;
 
 namespace VideoStudioApp.ViewModel
@@ -22,6 +28,9 @@ namespace VideoStudioApp.ViewModel
     public  class GrabacionVideoViewModel : ViewModelBase
     {
         public Window Home { get; set; }
+
+        public Window CurrentWindow { get; set; }
+
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
@@ -30,18 +39,36 @@ namespace VideoStudioApp.ViewModel
         public Grabacion SelectedGrabacion { get; set; }
 
 
-        public GrabacionVideoViewModel(Window home, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam, Grabacion selectedGrabacion)
+        public GrabacionVideoViewModel(Window home, Window currentWindow, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam, Grabacion selectedGrabacion)
         {
+           
+
+            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+            mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF0E18E8"));
+            ColorBtnGrabar = mySolidColorBrush;
+            TextBtnGrabar = "Grabar";
+
+            CurrentWindow = currentWindow;
             Home = home;            
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             SelectedGrabacion = selectedGrabacion;
            
             WebcamCtrl = cam;
-            this.WebcamCtrl.ImagenMarcaAgua = "tigre.jpg";           
+            CrearMarcaAgua();
             CargarVideo();
             TextTimer = "30:00";
 
+        }
+
+        private void CrearMarcaAgua()
+        {           
+            //NombreMarcaAgua
+            var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            pathMarcaAgua += "\\" + "tigre.jpg";
+
+            ResizeImage(pathMarcaAgua, "C:\\marcaAgua.jpg", ImageFormat.Jpeg, 0);
+            this.WebcamCtrl.ImagenMarcaAgua = "C:\\marcaAgua.jpg";
         }
 
 
@@ -60,17 +87,60 @@ namespace VideoStudioApp.ViewModel
             }
         }
 
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //Completo los servicios y procesos iniciales
+
+            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Background,
+                (MethodInvoker)delegate()
+                {
+                    TextBtnGrabar = "Grabando...";
+                    ColorBtnGrabar = new SolidColorBrush(Colors.DarkRed); 
+                }
+                );
+        }
+
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            // The background process is complete. First we should hide the
+            // modal Progress Form to unlock the UI. The we need to inspect our
+            // response to see if an error occured, a cancel was requested or
+            // if we completed succesfully.
+
+            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+            new Action(
+            delegate()
+            {
+                WebcamCtrl.StartRecording();
+
+                //Espera 20 segundoss y detiene
+                Thread.Sleep(30000);
+                // WebcamCtrl.StopPreview();        
+                WebcamCtrl.StopRecording();
+                AgregarMarcaAguaVideo();
+
+                MainWindow main = new MainWindow();
+                main.ShowDialog();
+                this.Home.Close();
+                
+                this.CurrentWindow.Close();
+                this.Dispose();
+            }
+            ));
+        }
+
         private void Grabar()
         {
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+
+            // Kick off the Async thread
+            bw.RunWorkerAsync();
+                       
+                    
            
-                
-            WebcamCtrl.StartRecording();
-            //Espera 20 segundoss y detiene
-            Thread.Sleep(5000);
-            WebcamCtrl.StopPreview();
-            WebcamCtrl.StopRecording();
-            AgregarMarcaAguaVideo();
-            
            
         }
 
@@ -81,17 +151,12 @@ namespace VideoStudioApp.ViewModel
         {
             try
             {
-                using (Image img = Image.FromFile(fileName))
+                using (System.Drawing.Image img = System.Drawing.Image.FromFile(fileName))
                 {
+                    int width = 250;                    
+                    int height = 150;
 
-
-                    int width = 300;
-                    //Convert.ToInt32(img.Width * (percent * .01));
-                    int height = 200;
-                    //Convert.ToInt32(img.Height * (percent * .01));
-
-
-                    Image thumbNail = new Bitmap(width, height, img.PixelFormat);
+                    System.Drawing.Image thumbNail = new Bitmap(width, height, img.PixelFormat);
                     Graphics g = Graphics.FromImage(thumbNail);
                     g.CompositingQuality = CompositingQuality.HighQuality;
                     g.SmoothingMode = SmoothingMode.HighQuality;
@@ -109,31 +174,49 @@ namespace VideoStudioApp.ViewModel
         }
 
 
-        public void AgregarMarcaAguaVideo()
+        private SolidColorBrush colorBtnGrabar;
+        public SolidColorBrush ColorBtnGrabar
         {
-            var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            pathMarcaAgua += "\\" + "tigre.jpg";
-
-            ResizeImage(pathMarcaAgua, "C:\\marcaAgua.jpg", ImageFormat.Jpeg, 0);
-
-
-
-            var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-         
-
-            var variable = "C:\\marcaAgua.jpg";
-
-        //    ffMpeg.ConvertMedia(WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi ", "video.mp4", Format.mp4);
-
-            ffMpeg.Invoke("-i " + WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi " + "-i " + variable + " -filter_complex \"overlay=10:30\" -codec:a copy videova.avi");
-
-            // ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\prueba.bmp -filter_complex \"[0:v][1:v]overlay=main_w-overlay_w-10:10\" -codec:a copy videoaa.mp4");
-
-
+            get
+            {
+                return colorBtnGrabar;
+            }
+            set
+            {
+                colorBtnGrabar = value;
+                OnPropertyChanged("ColorBtnGrabar");
+            }
         }
 
 
 
+        private string textBtnGrabar;
+        public string TextBtnGrabar
+        {
+            get
+            {
+                return textBtnGrabar;
+            }
+            set
+            {
+                textBtnGrabar = value;
+                OnPropertyChanged("TextBtnGrabar");
+            }
+        }
+
+        public void AgregarMarcaAguaVideo()
+        {                  
+            var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+            var variable = "C:\\marcaAgua.jpg";
+
+            ffMpeg.Invoke("-i " + WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi " + "-i " + variable + " -filter_complex \"overlay=400:330\" -codec:a copy " + WebcamCtrl.VideoDirectory + "\\" +WebcamCtrl.NombreVideo + "c.avi");
+            System.IO.File.Delete(WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi ");
+
+
+            var pathVideoSource = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            pathVideoSource += "\\" + WebcamCtrl.NombreVideo + ".avi";
+        }
+        
         private string textTimer;
         public string TextTimer
         {

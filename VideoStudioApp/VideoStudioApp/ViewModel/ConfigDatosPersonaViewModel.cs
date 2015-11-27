@@ -61,11 +61,13 @@ namespace VideoStudioApp.ViewModel
             {
                 DateTime today = DateTime.Today;
                 int age = today.Year - Convert.ToInt32(SelectedGrabacion.Edad);
-  
+                                 
+                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo, SelectedGrabacion);
+                viewGra.ShowDialog();
+
 
                 this.CurrentWindow.Close();
-                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo, SelectedGrabacion);
-                viewGra.ShowDialog();    
+                this.Dispose();
             }
 
             

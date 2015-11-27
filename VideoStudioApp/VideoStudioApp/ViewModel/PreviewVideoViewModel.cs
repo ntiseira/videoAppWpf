@@ -43,7 +43,9 @@ namespace VideoStudioApp.ViewModel
             {
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
-
+                //VisibilityImgMarcaAgua = new Visibility
+                WebcamCtrl.WfVisibilityImg = Visibility.Hidden;
+                
                 string path = "C:\\Videos"; // your code goes here
                 bool exists = System.IO.Directory.Exists(path);
 
@@ -67,7 +69,7 @@ namespace VideoStudioApp.ViewModel
             }
         }
 
-
+       
 
 
         private ICommand cancelarCommand;
@@ -113,6 +115,7 @@ namespace VideoStudioApp.ViewModel
             ConfigDatosLugar viewGra = new ConfigDatosLugar(this.Home, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
             this.CurrentWindow.Close();
+            this.Dispose();
            
         }
 

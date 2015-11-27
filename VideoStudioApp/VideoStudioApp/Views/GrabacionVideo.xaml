@@ -13,9 +13,9 @@
 
         <StackPanel Margin="40,50" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
             <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"   >
-                <Button Content="Grabar"    
+                <Button Content="{Binding TextBtnGrabar}" 
                 Command="{Binding GrabarCommand}"
-                        Width="200" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="30" />
+                        Width="200" Height="54" Background="{Binding ColorBtnGrabar}" Foreground="#FFFDFDFD" FontSize="30" />
             </Border>
         </StackPanel>
 

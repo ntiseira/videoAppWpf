@@ -75,7 +75,9 @@ namespace VideoStudioApp.ViewModel
                 Home.Hide();
                 Estadisticas viewEsta = new Estadisticas(this.Home);
                 viewEsta.ShowDialog();
+
                 this.CurrentWindow.Close();
+                this.Dispose();
             }
             else
             {
@@ -104,7 +106,9 @@ namespace VideoStudioApp.ViewModel
         private void Regresar()
         {         
             this.Home.ShowDialog();
+
             this.CurrentWindow.Close();
+            this.Dispose();
         }
 
 

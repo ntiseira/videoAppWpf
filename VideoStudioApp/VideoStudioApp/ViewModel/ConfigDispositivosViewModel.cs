@@ -59,7 +59,9 @@ namespace VideoStudioApp.ViewModel
             Home.Hide();
             PreviewVideo viewGra = new PreviewVideo(this.Home, SelectedAudioDevice, SelectedVideoDevice);
             viewGra.ShowDialog();
+
             this.CurrentWindow.Close();
+            this.Dispose();
            
         }
 

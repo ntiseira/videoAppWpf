@@ -41,7 +41,7 @@ namespace VideoStudioApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GrabacionVideoViewModel vm = new GrabacionVideoViewModel(Home, SelectedVideo, SelectedAudio, this.WebcamCtrl, SelectedGrabacion);
+            GrabacionVideoViewModel vm = new GrabacionVideoViewModel(Home, this, SelectedVideo, SelectedAudio, this.WebcamCtrl, SelectedGrabacion);
             this.DataContext = vm;
         }
     }

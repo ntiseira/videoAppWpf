@@ -83,10 +83,12 @@ namespace VideoStudioApp.ViewModel
                         appManager.AgregarColonia(GrabacionVideoCurrent.OtrosColonia, GrabacionVideoCurrent.Municipio);
                         appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
 
-                        this.CurrentWindow.Close();
                         ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo,
                             GrabacionVideoCurrent);
                         viewGra.ShowDialog();
+
+                        this.CurrentWindow.Close();
+                        this.Dispose();
                     }
                     else
                     {
@@ -102,9 +104,12 @@ namespace VideoStudioApp.ViewModel
                     {
                 appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
 
-                this.CurrentWindow.Close();
+                
                 ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo, GrabacionVideoCurrent);
                 viewGra.ShowDialog();
+
+                this.CurrentWindow.Close();
+                this.Dispose();
                     }
                   else
                   {

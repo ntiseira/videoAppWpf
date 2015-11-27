@@ -247,6 +247,22 @@ Public Class Webcam
 #End Region
 
 
+#Region "Visibilidad w host  Marca de agua video dependency property"
+    ''' <summary>
+    ''' Gets or Sets the folder where video snapshot will be saved.
+    ''' </summary>    
+    Public Property WfVisibilityImg() As Visibility
+        Get
+            Return CType(GetValue(WfVisibilityImgProperty), Visibility)
+        End Get
+        Set(ByVal value As Visibility)
+            SetValue(WfVisibilityImgProperty, value)
+        End Set
+    End Property
+
+    Public Shared WfVisibilityImgProperty As DependencyProperty =
+        DependencyProperty.Register("WfVisibilityImg", GetType(Visibility), GetType(Webcam), New PropertyMetadata(Nothing))
+#End Region
 
 
 
@@ -265,19 +281,10 @@ Public Class Webcam
                 StopPreview()
 
 
+                wfImg.Visibility = WfVisibilityImg
                 imgMarcaAgua.Image = Image.FromFile(ImagenMarcaAgua)
 
-                'Dim mypicture As New Bitmap(ImagenMarcaAgua)
-
-                'mypicture.MakeTransparent(Color.White)
-
-                'Dim g As Graphics
-
-                'g = imgMarcaAgua.CreateGraphics()
-
-                'g.DrawImage(mypicture, 0, 0)
-
-
+                canvasContent.Visibility = Windows.Visibility.Visible
 
                 job = New LiveJob
                 Dim frameDuration As Long = CLng(FrameRate * Math.Pow(10, 7))

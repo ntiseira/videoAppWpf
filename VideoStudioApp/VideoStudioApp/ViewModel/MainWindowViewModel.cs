@@ -27,7 +27,7 @@ namespace VideoStudioApp.ViewModel
         {
             //CurrentWindow = window;
             Home = home;
-         //  Prueba();
+          // Prueba();
             
         }
 
@@ -39,18 +39,10 @@ namespace VideoStudioApp.ViewModel
             try
             {
                 var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-                //Convierte de formato
-                //  ffMpeg.ConvertMedia("c:\\test.avi", "video.mp4", Format.mp4);
-                // String strAssemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                // strAssemblyPath += WebcamCtrl.ImagenMarcaAgua;
+              
+                ffMpeg.Invoke("-i c:\\NICOLAS_2015_27_11.avi -i C:\\marcaAgua.jpg -filter_complex \"overlay=350:300\" -codec:a copy pruebaadddaaa.avi");
 
-                //    var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                //  pathMarcaAgua += "\\" + "tigre.bmp";
-
-
-                ffMpeg.Invoke("-i c:\\NICOLAS_2015_27_11.avi -i C:\\tigre.jpg -filter_complex \"overlay=10:30\" -codec:a copy pruebaadddaaa.avi");
-
-                ffMpeg.ConvertMedia("C:\\NICOLAS_2015_27_11.avi", "4564656.mp4", Format.mp4);
+                
 
 
                 //         ffMpeg.Invoke("-i " + WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".mp4 " + "-i " + pathMarcaAgua + " -filter_complex \"overlay=10:30\" -codec:a copy videova.mp4");
@@ -65,7 +57,7 @@ namespace VideoStudioApp.ViewModel
                 //Convierte de formato
                 //  ffMpeg.ConvertMedia("c:\\test.avi", "video.mp4", Format.mp4);
 
-                ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\tigre.jpg -filter_complex \"overlay=10:30\" -codec:a copy videova.mp4");
+              //  ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\tigre.jpg -filter_complex \"[0:v][1:v]overlay=main_w-overlay_w-10:10\" -codec:a copy videova.mp4");
 
                 // ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\prueba.bmp -filter_complex \"[0:v][1:v]overlay=main_w-overlay_w-10:10\" -codec:a copy videoaa.mp4");
           

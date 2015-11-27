@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VideoStudioApp.Model;
 using VideoStudioApp.ViewModel;
 
 namespace VideoStudioApp.Views
@@ -25,18 +26,22 @@ namespace VideoStudioApp.Views
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
-        public GrabacionVideo(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio)
+        public Grabacion SelectedGrabacion { get; set; }
+
+        
+        public GrabacionVideo(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio, Grabacion grabacionSelected)
         {
             InitializeComponent();
             Home = home;
+            SelectedGrabacion = grabacionSelected;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
-
+            WebcamCtrl.NombreVideo = SelectedGrabacion.Nombre + "_" + DateTime.Now.ToString("yyyy_dd_MM");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GrabacionVideoViewModel vm = new GrabacionVideoViewModel(Home, SelectedVideo, SelectedAudio, this.WebcamCtrl);
+            GrabacionVideoViewModel vm = new GrabacionVideoViewModel(Home, SelectedVideo, SelectedAudio, this.WebcamCtrl, SelectedGrabacion);
             this.DataContext = vm;
         }
     }

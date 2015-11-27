@@ -25,25 +25,51 @@ namespace VideoStudioApp.ViewModel
         {
             //CurrentWindow = window;
             Home = home;
-          //  Prueba();
+         //  Prueba();
         }
 
         public void Prueba()
         {
+            try
+            {
+                var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                //Convierte de formato
+                //  ffMpeg.ConvertMedia("c:\\test.avi", "video.mp4", Format.mp4);
+                // String strAssemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                // strAssemblyPath += WebcamCtrl.ImagenMarcaAgua;
+
+                //    var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                //  pathMarcaAgua += "\\" + "tigre.bmp";
+
+
+                ffMpeg.Invoke("-i c:\\NICOLAS_2015_27_11.avi -i C:\\tigre.jpg -filter_complex \"overlay=10:30\" -codec:a copy pruebaadddaaa.avi");
+
+                ffMpeg.ConvertMedia("C:\\NICOLAS_2015_27_11.avi", "4564656.mp4", Format.mp4);
+
+
+                //         ffMpeg.Invoke("-i " + WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".mp4 " + "-i " + pathMarcaAgua + " -filter_complex \"overlay=10:30\" -codec:a copy videova.mp4");
 
 
 
-// NReco.VideoConverter.FFMpegConverter wrap = new FFMpegConverter();
- //wrap.Invoke("-i c:\\test.avi -i C:\\prueba.bmp -filter_complex \"overlay=10:10\" c:\\test2.avi");
 
- var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-  //Convierte de formato
-            //  ffMpeg.ConvertMedia("c:\\test.avi", "video.mp4", Format.mp4);
+                // NReco.VideoConverter.FFMpegConverter wrap = new FFMpegConverter();
+                //wrap.Invoke("-i c:\\test.avi -i C:\\prueba.bmp -filter_complex \"overlay=10:10\" c:\\test2.avi");
 
-    ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\prueba.bmp -filter_complex \"overlay=10:30\" -codec:a copy videova.mp4");
+                //var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                //Convierte de formato
+                //  ffMpeg.ConvertMedia("c:\\test.avi", "video.mp4", Format.mp4);
 
-// ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\prueba.bmp -filter_complex \"[0:v][1:v]overlay=main_w-overlay_w-10:10\" -codec:a copy videoaa.mp4");
+                ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\tigre.jpg -filter_complex \"overlay=10:30\" -codec:a copy videova.mp4");
+
+                // ffMpeg.Invoke("-i c:\\video.mp4 -i C:\\prueba.bmp -filter_complex \"[0:v][1:v]overlay=main_w-overlay_w-10:10\" -codec:a copy videoaa.mp4");
           
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        
 
         }
 

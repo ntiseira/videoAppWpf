@@ -64,7 +64,7 @@ namespace VideoStudioApp.ViewModel
   
 
                 this.CurrentWindow.Close();
-                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo);
+                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo, SelectedGrabacion);
                 viewGra.ShowDialog();    
             }
 

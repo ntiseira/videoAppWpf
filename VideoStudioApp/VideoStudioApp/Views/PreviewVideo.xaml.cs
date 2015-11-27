@@ -28,6 +28,7 @@ namespace VideoStudioApp.Views
         public PreviewVideo(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio)
         {
             InitializeComponent();
+            this.WebcamCtrl.ImagenMarcaAgua = "tigre.jpg";
             Home = home;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;

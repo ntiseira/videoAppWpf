@@ -22,7 +22,7 @@ Public Class Webcam
     End Property
 
     Private Shared ReadOnly VideoFileFormatPropertyKey As DependencyPropertyKey =
-        DependencyProperty.RegisterReadOnly("VideoFileFormat", GetType(String), GetType(Webcam), New PropertyMetadata(".wmv"))
+        DependencyProperty.RegisterReadOnly("VideoFileFormat", GetType(String), GetType(Webcam), New PropertyMetadata(".avi"))
 
     Public Shared ReadOnly VideoFileFormatProperty As DependencyProperty = VideoFileFormatPropertyKey.DependencyProperty
 #End Region
@@ -210,6 +210,47 @@ Public Class Webcam
     Public Shared ReadOnly IsRecordingProperty As DependencyProperty = IsRecordingPropertyKey.DependencyProperty
 #End Region
 
+
+
+#Region "Imagen Marca de Agua dependency property"
+    ''' <summary>
+    ''' Gets or Sets the folder where video snapshot will be saved.
+    ''' </summary>    
+    Public Property ImagenMarcaAgua() As String
+        Get
+            Return CType(GetValue(ImagenMarcaAguaProperty), String)
+        End Get
+        Set(ByVal value As String)
+            SetValue(ImagenMarcaAguaProperty, value)
+        End Set
+    End Property
+
+    Public Shared ImagenMarcaAguaProperty As DependencyProperty =
+        DependencyProperty.Register("ImagenMarcaAgua", GetType(String), GetType(Webcam), New PropertyMetadata(Nothing))
+#End Region
+
+#Region "Nombre Archivo video dependency property"
+    ''' <summary>
+    ''' Gets or Sets the folder where video snapshot will be saved.
+    ''' </summary>    
+    Public Property NombreVideo() As String
+        Get
+            Return CType(GetValue(NombreVideoProperty), String)
+        End Get
+        Set(ByVal value As String)
+            SetValue(NombreVideoProperty, value)
+        End Set
+    End Property
+
+    Public Shared NombreVideoProperty As DependencyProperty =
+        DependencyProperty.Register("NombreVideo", GetType(String), GetType(Webcam), New PropertyMetadata(Nothing))
+#End Region
+
+
+
+
+
+
     Private deviceSource As LiveDeviceSource
     Private job As LiveJob
     Private isPreviewing As Boolean
@@ -222,6 +263,21 @@ Public Class Webcam
             If (_videoDevice IsNot Nothing) Then
                 StopRecording()
                 StopPreview()
+
+
+                imgMarcaAgua.Image = Image.FromFile(ImagenMarcaAgua)
+
+                'Dim mypicture As New Bitmap(ImagenMarcaAgua)
+
+                'mypicture.MakeTransparent(Color.White)
+
+                'Dim g As Graphics
+
+                'g = imgMarcaAgua.CreateGraphics()
+
+                'g.DrawImage(mypicture, 0, 0)
+
+
 
                 job = New LiveJob
                 Dim frameDuration As Long = CLng(FrameRate * Math.Pow(10, 7))
@@ -237,6 +293,9 @@ Public Class Webcam
                 job.ActivateSource(deviceSource)
 
                 isPreviewing = True
+
+
+
             End If
         Catch ex As Microsoft.Expression.Encoder.SystemErrorException
             Throw New Microsoft.Expression.Encoder.SystemErrorException
@@ -279,10 +338,11 @@ Public Class Webcam
         If (job IsNot Nothing AndAlso isPreviewing) Then
             StopRecording()
 
-            Dim filePath As String = Path.Combine(vidDir, "Webcam " & TimeStamp() & ".wmv")
+            Dim filePath As String = Path.Combine(vidDir, NombreVideo & ".avi")
             Dim fileArcvFormat As New FileArchivePublishFormat(filePath)
 
             job.PublishFormats.Clear()
+
             job.PublishFormats.Add(fileArcvFormat)
             job.StartEncoding()
 
@@ -378,5 +438,13 @@ Public Class Webcam
 
     Private Sub Webcam_Unloaded(sender As Object, e As RoutedEventArgs) Handles Me.Unloaded
         Dispose()
+    End Sub
+
+    Public Sub New()
+
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+
+
     End Sub
 End Class

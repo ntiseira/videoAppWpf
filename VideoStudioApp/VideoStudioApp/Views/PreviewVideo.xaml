@@ -8,7 +8,7 @@
     <Grid Background="#FFC9C9C9">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"  Width="640" Height="480" >
-                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="6,6,6,0" Height="460"/>
+                <cam:Webcam Name="WebcamCtrl"   VerticalAlignment="Top"/>
             </Border>
         </StackPanel>
         <WrapPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="472"  Margin="0,60">

@@ -63,6 +63,14 @@ Webcam
 	<summary>
  Gets a value indicating whether video recording is taking place.
  </summary>
+</member><member name="P:WebcamControl.Webcam.ImagenMarcaAgua">
+	<summary>
+ Gets or Sets the folder where video snapshot will be saved.
+ </summary>
+</member><member name="P:WebcamControl.Webcam.NombreVideo">
+	<summary>
+ Gets or Sets the folder where video snapshot will be saved.
+ </summary>
 </member><member name="M:WebcamControl.Webcam.StartPreview">
 	<summary>
  Displays webcam video.

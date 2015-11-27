@@ -11,6 +11,8 @@ using VideoStudioApp.Helper;
 using VideoStudioApp.Views;
 using System.Drawing;
 using NReco.VideoConverter;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 
 namespace VideoStudioApp.ViewModel
@@ -26,7 +28,11 @@ namespace VideoStudioApp.ViewModel
             //CurrentWindow = window;
             Home = home;
          //  Prueba();
+            
         }
+
+
+      
 
         public void Prueba()
         {

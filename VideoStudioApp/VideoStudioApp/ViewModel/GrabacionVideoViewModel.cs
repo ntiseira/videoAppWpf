@@ -91,7 +91,7 @@ namespace VideoStudioApp.ViewModel
         {
             //Completo los servicios y procesos iniciales
 
-            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Background,
+            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
                 (MethodInvoker)delegate()
                 {
                     TextBtnGrabar = "Grabando...";
@@ -108,14 +108,14 @@ namespace VideoStudioApp.ViewModel
             // response to see if an error occured, a cancel was requested or
             // if we completed succesfully.
 
-            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Background,
             new Action(
             delegate()
             {
                 WebcamCtrl.StartRecording();
 
                 //Espera 20 segundoss y detiene
-                Thread.Sleep(30000);
+                Thread.Sleep(10000);
                 // WebcamCtrl.StopPreview();        
                 WebcamCtrl.StopRecording();
                 AgregarMarcaAguaVideo();

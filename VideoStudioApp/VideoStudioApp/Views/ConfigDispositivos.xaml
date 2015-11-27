@@ -5,8 +5,8 @@
         Title="ConfigDispositivos" Height="768" Width="1024">
     <Grid Background="#FFC9C9C9">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="361.388" Width="640.298" Margin="213.493,206.5,170.209,200.112">
-            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedVideoDevice}" DisplayMemberPath="Name" ItemsSource="{Binding Path=VideoDevices}" Height="55"  VerticalAlignment="Top" Width="600"/>
-            <ComboBox HorizontalAlignment="Center"  SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="55"  Margin="0,30" VerticalAlignment="Top" Width="600"/>
+            <ComboBox HorizontalAlignment="Center"  FontSize="30"  SelectedValue="{Binding Path=SelectedVideoDevice}" DisplayMemberPath="Name" ItemsSource="{Binding Path=VideoDevices}" Height="55"  VerticalAlignment="Top" Width="600"/>
+            <ComboBox HorizontalAlignment="Center"  FontSize="30" SelectedValue="{Binding Path=SelectedAudioDevice}" DisplayMemberPath="Name"  ItemsSource="{Binding Path=AudioDevices}" Height="55"  Margin="0,30" VerticalAlignment="Top" Width="600"/>
             
 
             <Border BorderBrush="#FF000000" HorizontalAlignment="Center" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">

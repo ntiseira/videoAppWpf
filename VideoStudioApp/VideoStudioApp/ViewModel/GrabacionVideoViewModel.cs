@@ -117,7 +117,9 @@ namespace VideoStudioApp.ViewModel
                 (MethodInvoker)delegate()
                 {
                     TextBtnGrabar = "Grabando...";
-                    ColorBtnGrabar = new SolidColorBrush(Colors.DarkRed); 
+                    ColorBtnGrabar = new SolidColorBrush(Colors.DarkRed);
+                    stopWatch.Start();
+                    dt.Start();
                 }
                 );
         }
@@ -138,19 +140,18 @@ namespace VideoStudioApp.ViewModel
                 WebcamCtrl.StartRecording();
                
 
-                  CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-            new Action(
-            delegate()
-            {
+            //      CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+            //new Action(
+            //delegate()
+            //{
                
                
-                stopWatch.Start();
-                dt.Start();
+               
 
-            }
-            ));
+            //}
+            //));
                   //Espera 20 segundoss y detiene
-                  Thread.Sleep(10000);
+                 // Thread.Sleep(10000);
                
                 // WebcamCtrl.StopPreview();        
                 WebcamCtrl.StopRecording();

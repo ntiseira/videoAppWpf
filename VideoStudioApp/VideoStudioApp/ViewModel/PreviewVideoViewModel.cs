@@ -120,10 +120,9 @@ namespace VideoStudioApp.ViewModel
         private void IniciarConfigDatosLugar()
         {
             Home.Hide();
-            ConfigDatosLugar viewGra = new ConfigDatosLugar(this.Home, SelectedAudio, SelectedVideo);
+            ConfigDatosLugar viewGra = new ConfigDatosLugar(this.Home, this.CurrentWindow, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
-            this.CurrentWindow.Close();
-            this.Dispose();
+            this.CurrentWindow.Hide();            
            
         }
 

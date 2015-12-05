@@ -32,7 +32,80 @@ namespace VideoStudioApp.ViewModel
             CurrentWindow = current;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
+            CargarDatosLugar();
         }
+
+        private void CargarDatosLugar()
+        {
+            TextBrigada = SelectedGrabacion.Brigada;
+            TextLugar = SelectedGrabacion.Lugar;
+            TextMunicipio = SelectedGrabacion.Municipio;
+            TextColonia = SelectedGrabacion.Colonia;        
+        }
+
+
+        private string textBrigada;
+        public string TextBrigada
+        {
+            get
+            {
+                return textBrigada;
+            }
+            set
+            {
+                textBrigada = value;
+                OnPropertyChanged("TextBrigada");
+            }
+        }
+
+
+        private string textLugar;
+        public string TextLugar
+        {
+            get
+            {
+                return textLugar;
+            }
+            set
+            {
+                textLugar = value;
+                OnPropertyChanged("TextLugar");
+            }
+        }
+
+
+        private string textMunicipio;
+        public string TextMunicipio
+        {
+            get
+            {
+                return textMunicipio;
+            }
+            set
+            {
+                textMunicipio = value;
+                OnPropertyChanged("TextMunicipio");
+            }
+        }
+
+
+
+        private string textColonia;
+        public string TextColonia
+        {
+            get
+            {
+                return textColonia;
+            }
+            set
+            {
+                textColonia = value;
+                OnPropertyChanged("TextColonia");
+            }
+        }
+
+
+      
 
 
 

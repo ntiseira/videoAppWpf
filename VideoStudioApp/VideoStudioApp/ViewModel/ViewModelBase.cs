@@ -11,7 +11,7 @@ namespace VideoStudioApp.ViewModel
     /// <summary>
     /// Provides common functionality for ViewModel classes
     /// </summary>
-    public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

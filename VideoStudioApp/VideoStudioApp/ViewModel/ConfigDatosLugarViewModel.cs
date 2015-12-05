@@ -18,6 +18,10 @@ namespace VideoStudioApp.ViewModel
 
         public Window Home { get; set; }
        public Window CurrentWindow { get; set; }
+
+       public Window ConfigWindow { get; set; }
+
+
        public Grabacion GrabacionVideoCurrent { get; set; }
 
        public EncoderDevice SelectedVideo { get; set; }
@@ -27,11 +31,12 @@ namespace VideoStudioApp.ViewModel
 
        public List<ComboBoxD> ListaMunicipios { get; set; }
        public List<ComboBoxD> ListaColonias { get; set; }
-       
-       public ConfigDatosLugarViewModel(Window home, Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
+
+       public ConfigDatosLugarViewModel(Window home, Window current, Window config, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
         {
             Home = home;
             CurrentWindow = current;
+            ConfigWindow = config;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             GrabacionVideoCurrent = new Grabacion();
@@ -61,6 +66,57 @@ namespace VideoStudioApp.ViewModel
                 return iniciarConfigDatosPersonaCommand;
             }
         }
+
+
+        private ICommand regresarMenuCommand;
+        public ICommand RegresarMenuCommand
+        {
+            get
+            {
+                if (regresarMenuCommand == null)
+                {
+                    regresarMenuCommand = new RelayCommand(
+                        param => this.RegresarMenu()
+                    );
+                }
+                return regresarMenuCommand;
+            }
+        }
+
+        private void RegresarMenu()
+        {
+            MainWindow principal = new MainWindow();
+            principal.ShowDialog();
+            this.Dispose();
+            this.CurrentWindow.Close();
+        }
+
+
+        private ICommand regresarPreviewCommand;
+        public ICommand RegresarPreviewCommand
+        {
+            get
+            {
+                if (regresarPreviewCommand == null)
+                {
+                    regresarPreviewCommand = new RelayCommand(
+                        param => this.RegresarPreview()
+                    );
+                }
+                return regresarPreviewCommand;
+            }
+        }
+
+        private void RegresarPreview()
+        {   
+            MainWindow main = new MainWindow();
+            ConfigDispositivos view = new ConfigDispositivos(main);
+            view.ShowDialog();
+            this.Dispose();
+            this.CurrentWindow.Close();
+          
+        }
+
 
         private void IniciarConfigDatosPersona()
         {

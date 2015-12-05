@@ -22,13 +22,15 @@ namespace VideoStudioApp.Views
     public partial class ConfigDatosLugar : Window
     {
         public Window Home { get; set; }
+        public Window Config { get; set; }
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
-        public ConfigDatosLugar(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio)
+        public ConfigDatosLugar(Window home, Window config, EncoderDevice selectedVideo, EncoderDevice selectedAudio)
         {
             InitializeComponent();
             Home = home;
+            Config = config;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
 
@@ -36,7 +38,7 @@ namespace VideoStudioApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ConfigDatosLugarViewModel vm = new ConfigDatosLugarViewModel(Home,this, SelectedVideo, SelectedAudio);
+            ConfigDatosLugarViewModel vm = new ConfigDatosLugarViewModel(Home,this,Config, SelectedVideo, SelectedAudio);
             this.DataContext = vm;
         }
     }

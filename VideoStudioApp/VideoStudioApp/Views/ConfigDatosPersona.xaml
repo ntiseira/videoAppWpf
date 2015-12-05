@@ -40,10 +40,10 @@
             </StackPanel>
 
             <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0" Width="142" >
-                <TextBlock Width="145" FontSize="24"  >A1</TextBlock>
-                <TextBlock  Width="145" FontSize="24" > Jardín Tepames</TextBlock>
-                <TextBlock  Width="145" FontSize="24" >Tecomán</TextBlock>
-                <TextBlock Width="145" FontSize="24" >Colonia</TextBlock>
+                <TextBlock Width="145" FontSize="24"  Text="{Binding TextBrigada}"></TextBlock>
+                <TextBlock  Width="145" FontSize="24" Text="{Binding TextLugar}" > </TextBlock>
+                <TextBlock  Width="145" FontSize="24" Text="{Binding TextMunicipio}"></TextBlock>
+                <TextBlock Width="145" FontSize="24" Text="{Binding TextColonia}"></TextBlock>
             </StackPanel>
             </WrapPanel>
         

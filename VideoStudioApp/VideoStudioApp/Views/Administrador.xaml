@@ -7,12 +7,12 @@
 
     <Grid Background="#FFC9C9C9">
 
-        <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
-            <Button Content="Regresar"  Command="{Binding RegresarCommand}" 
-                    HorizontalAlignment="Left" Height="41" Margin="40,26,0,0" 
-                    VerticalAlignment="Top" Width="98"/>
-        </Border>
         
+
+        <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
+            <Button Content="Regresar"  Command="{Binding RegresarCommand}" HorizontalAlignment="Left" Margin="50,30"  VerticalAlignment="Top" Width="200" Height="54" Background="#FF0E18E8" Foreground="#FFFDFDFD" FontSize="21.333" />
+        </Border>
+
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
             <Border BorderThickness="1" BorderBrush="Black">
                 <TextBox Text="{Binding User}" FontSize="35"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="332" Height="75" BorderThickness="2"></TextBox>

@@ -74,21 +74,54 @@ namespace VideoStudioApp.Business
             var data = mysqlAccess.ExecuteProcedure("AgregarLugar", listParam);
         }
 
-        public List<Reporte> GetReporte(string nombre, string edad, string brigada, string lugar, string colonia,
-            string fechaInicial, string fechaHasta)
+        public List<Reporte> GetReporte( string edad, string brigada, string lugar, string municipio, string colonia,
+            DateTime fechaInicial, DateTime fechaHasta)
         {
-            List<Reporte> list = new List<Reporte>();
-            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
-            OrderedDictionary listParam = new OrderedDictionary();
-            listParam.Add("nombreLugar", nombre);
-            listParam.Add("nombreLugar", edad);
-            listParam.Add("nombreLugar", brigada);
-            listParam.Add("nombreLugar", lugar);
-            listParam.Add("nombreLugar", colonia);
-            listParam.Add("nombreLugar", fechaInicial);
-            listParam.Add("nombreLugar", fechaHasta);
-            var data = mysqlAccess.ExecuteProcedure("ObtenerReporte", listParam);
-            return list;
+            try
+            {
+                List<Reporte> list = new List<Reporte>();
+                MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+                OrderedDictionary listParam = new OrderedDictionary();
+                
+
+                listParam.Add("pEdad", int.Parse(edad));
+                listParam.Add("pBrigada", brigada);
+                listParam.Add("pLugar", lugar);
+                listParam.Add("pMunicipio", municipio);
+                listParam.Add("pColonia", colonia);             
+
+                listParam.Add("pFechaInicial", fechaInicial.Date);
+
+
+                listParam.Add("pFechaFinal", fechaHasta.Date);
+                var data = mysqlAccess.ExecuteProcedure("ObtenerReporte", listParam);
+
+
+                foreach (DataRow row in data.Rows)
+                {
+                    Reporte itemReporte = new Reporte();
+                    itemReporte.Brigada = row["brigada"].ToString();
+                    itemReporte.Colonia = row["colonia"].ToString();
+
+                    DateTime edadD = Convert.ToDateTime(row["edad"].ToString());
+
+
+                    itemReporte.Edad = (DateTime.Now.Year - edadD.Year).ToString();
+                    itemReporte.Lugar = row["lugar"].ToString();
+                    itemReporte.Municipio = row["municipio"].ToString();
+                    itemReporte.Nombre = row["nombre"].ToString();
+                    itemReporte.FechaInicial = Convert.ToDateTime(row["creado"].ToString());
+
+                    list.Add(itemReporte);
+                }
+
+                return list;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
          //   return ParseDataTableComboBox(data);
         }
 

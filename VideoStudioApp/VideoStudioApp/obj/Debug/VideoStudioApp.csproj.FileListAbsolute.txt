@@ -74,6 +74,8 @@ C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video A
 C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Debug\VideoStudioApp.exe
 C:\Users\Nicolas\Desktop\Web video App full_18\Web video App full_18\Web video App full_18\Web video App full\Web video App\VideoStudioApp\VideoStudioApp\obj\Debug\VideoStudioApp.pdb
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\VideoStudioApp.exe.config
+D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\Content\Images\tigrewatermark.jpg
+D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\tigre.jpg
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\VideoStudioApp.exe
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\VideoStudioApp.pdb
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\bin\Debug\itextsharp.dll
@@ -107,6 +109,7 @@ D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\Views
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\Views\PreviewVideo.g.cs
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\Views\Estadisticas.g.cs
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\App.g.cs
+D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\VideoStudioApp_Content.g.cs
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\VideoStudioApp_MarkupCompile.cache
 D:\Proyectos freelance\VideoAppWpf\VideoStudioApp\VideoStudioApp\obj\Debug\VideoStudioApp_MarkupCompile.lref

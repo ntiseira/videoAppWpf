@@ -71,6 +71,10 @@ Webcam
 	<summary>
  Gets or Sets the folder where video snapshot will be saved.
  </summary>
+</member><member name="P:WebcamControl.Webcam.WfVisibilityImg">
+	<summary>
+ Gets or Sets the folder where video snapshot will be saved.
+ </summary>
 </member><member name="M:WebcamControl.Webcam.StartPreview">
 	<summary>
  Displays webcam video.

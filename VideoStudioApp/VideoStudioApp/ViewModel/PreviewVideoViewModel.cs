@@ -41,9 +41,10 @@ namespace VideoStudioApp.ViewModel
         {
             try
             {
+                CalculateAndReziseWebCam();
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
-                //VisibilityImgMarcaAgua = new Visibility
+                
                 WebcamCtrl.WfVisibilityImg = Visibility.Hidden;
                 
                 string path = "C:\\Videos"; // your code goes here
@@ -56,7 +57,7 @@ namespace VideoStudioApp.ViewModel
                 WebcamCtrl.VideoDirectory = "C:\\Videos";
                 WebcamCtrl.ImageDirectory = "C:\\Videos";
                 WebcamCtrl.FrameRate = 30;
-
+                
                 System.Drawing.Size size = new System.Drawing.Size(640, 480);
                 WebcamCtrl.FrameSize = size;
                
@@ -69,7 +70,14 @@ namespace VideoStudioApp.ViewModel
             }
         }
 
-       
+        private void CalculateAndReziseWebCam()
+        {
+           
+            var prueba = System.Windows.SystemParameters.PrimaryScreenWidth;
+            var prueba2 = System.Windows.SystemParameters.PrimaryScreenHeight;
+
+
+        }
 
 
         private ICommand cancelarCommand;

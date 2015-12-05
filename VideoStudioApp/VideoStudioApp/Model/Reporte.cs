@@ -144,7 +144,22 @@ namespace VideoStudioApp.Model
 
 
 
-
+        private string nombre;
+        public string Nombre
+        {
+            get
+            {
+                return nombre;
+            }
+            set
+            {
+                if (nombre != value)
+                {
+                    nombre = value;
+                    OnPropertyChanged("Nombre");
+                }
+            }
+        }
 
 
 

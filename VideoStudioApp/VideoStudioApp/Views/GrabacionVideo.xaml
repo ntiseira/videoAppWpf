@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="Window_Loaded"
       WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen" 
          xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"  
-        Title="GrabacionVideo" Height="768" Width="1024">
+        Title="GrabacionVideo" >
     <Grid Background="#FFC9C9C9">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"  Width="640" Height="480" >
-                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="6,6,6,0" Height="460"/>
+            <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"   >
+                <cam:Webcam Name="WebcamCtrl" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="6,6,6,0" />
             </Border>
         </StackPanel>
 
@@ -21,7 +21,7 @@
 
         <StackPanel Margin="30"  VerticalAlignment="Top" HorizontalAlignment="Left">
             <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="30,30,30,30">
-                <TextBlock  FontSize="35"  Height="55" TextAlignment="Center" Width="194"> 27:00</TextBlock>
+                <TextBlock  FontSize="35"  Height="55" TextAlignment="Center" Width="194" Text="{Binding TextTimer}"> </TextBlock>
             </Border>
         </StackPanel>
     </Grid>

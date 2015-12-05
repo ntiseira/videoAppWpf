@@ -4,14 +4,14 @@
               WindowStyle="None" ResizeMode="NoResize"  WindowState="Maximized" WindowStartupLocation="CenterScreen"  Loaded="Window_Loaded"
         xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"         
         
-       Title="GrabacionVideo" Height="768" Width="1024">
+       Title="GrabacionVideo" Height="736.493" Width="957.552" >
     <Grid Background="#FFC9C9C9">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8"  Width="640" Height="480" >
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="89,10,70,80" >
+            <Border BorderBrush="#FF000000" BorderThickness="4,4,4,4" CornerRadius="8,8,8,8" >
                 <cam:Webcam Name="WebcamCtrl"   VerticalAlignment="Top"/>
             </Border>
         </StackPanel>
-        <WrapPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="472"  Margin="0,60">
+        <WrapPanel  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="472"  Margin="276,0,276,20">
 
             <Border BorderBrush="#FF000000" BorderThickness="3,3,3,3" CornerRadius="8,8,8,8">
                 <Button Content="Cancelar"

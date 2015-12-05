@@ -8,11 +8,11 @@
              mc:Ignorable="d">
     <Grid>
 
-        <Canvas Width="641" Height="481" Visibility="Hidden"  x:Name="canvasContent">
-            <WindowsFormsHost Name="WinFormsHost" Margin="0" Background="{x:Null}" Height="480" Width="631" >
+        <Canvas Width="1280" Height="960" Visibility="Hidden"  x:Name="canvasContent">
+            <WindowsFormsHost Name="WinFormsHost" Margin="0" Background="{x:Null}"  Width="1280" Height="960">
                 <wf:Panel x:Name="WebcamPanel"/>
             </WindowsFormsHost>
-            <WindowsFormsHost   Width="190" Height="154"  x:Name="wfImg" Canvas.Right="0" Canvas.Bottom="0" Canvas.Left="441" Canvas.Top="317">
+            <WindowsFormsHost   Width="190" Height="154"  x:Name="wfImg" Canvas.Right="0" Canvas.Bottom="0">
                 <wf:PictureBox Width="190" Height="154"  x:Name="imgMarcaAgua" ></wf:PictureBox>
             </WindowsFormsHost>
         </Canvas>

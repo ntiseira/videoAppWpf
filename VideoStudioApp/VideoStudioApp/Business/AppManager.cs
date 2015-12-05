@@ -48,6 +48,23 @@ namespace VideoStudioApp.Business
         }
 
 
+            public void AgregarGrabacion(string lugar, string brigada, string colonia, string municipio, string nombre, DateTime edad)
+        {
+            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+            OrderedDictionary listParam = new OrderedDictionary();
+            listParam.Add("pLugar", lugar);
+            listParam.Add("pBrigada", brigada);
+            listParam.Add("pColonia", colonia);
+            listParam.Add("pMunicipio", municipio);
+            listParam.Add("pNombre", nombre);
+            listParam.Add("pEdad", edad);                
+
+            var data = mysqlAccess.ExecuteProcedure("AgregarGrabacion", listParam);
+        }
+
+        
+
+
         public void AgregarLugar(string lugar)
         {
             MySqlDataAccess mysqlAccess = new MySqlDataAccess();
@@ -57,6 +74,23 @@ namespace VideoStudioApp.Business
             var data = mysqlAccess.ExecuteProcedure("AgregarLugar", listParam);
         }
 
+        public List<Reporte> GetReporte(string nombre, string edad, string brigada, string lugar, string colonia,
+            string fechaInicial, string fechaHasta)
+        {
+            List<Reporte> list = new List<Reporte>();
+            MySqlDataAccess mysqlAccess = new MySqlDataAccess();
+            OrderedDictionary listParam = new OrderedDictionary();
+            listParam.Add("nombreLugar", nombre);
+            listParam.Add("nombreLugar", edad);
+            listParam.Add("nombreLugar", brigada);
+            listParam.Add("nombreLugar", lugar);
+            listParam.Add("nombreLugar", colonia);
+            listParam.Add("nombreLugar", fechaInicial);
+            listParam.Add("nombreLugar", fechaHasta);
+            var data = mysqlAccess.ExecuteProcedure("ObtenerReporte", listParam);
+            return list;
+         //   return ParseDataTableComboBox(data);
+        }
 
 
         public List<ComboBoxD> GetMunicipios()

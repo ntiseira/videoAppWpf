@@ -13,6 +13,9 @@ using System.Drawing;
 using NReco.VideoConverter;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.IO;
+using Microsoft.Reporting.WinForms;
+using VideoStudioApp.Model;
 
 
 namespace VideoStudioApp.ViewModel
@@ -27,12 +30,56 @@ namespace VideoStudioApp.ViewModel
         {
             //CurrentWindow = window;
             Home = home;
+         //   CargarReporte();
           // Prueba();
             
         }
 
 
-      
+        public void CargarReporte()
+        {
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string filenameExtension;
+            ReportViewer viewer = new ReportViewer();
+            viewer.LocalReport.Refresh();
+            viewer.LocalReport.ReportPath = "Report\\ReporteGrabaciones.rdlc";
+
+            List<Reporte> rep = new List<Reporte>();
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetVideo", rep));
+          
+            //Pdf
+            byte[] bytes = viewer.LocalReport.Render(
+                "PDF", null, out mimeType, out encoding, out filenameExtension,
+                out streamids, out warnings);
+
+            using (FileStream fs = new FileStream("prueba.pdf", FileMode.Create))
+            {
+                fs.Write(bytes, 0, bytes.Length);
+            }
+          
+
+            //Excel
+            byte[] bytesExcel = viewer.LocalReport.Render(
+                "Excel", null, out mimeType, out encoding, out filenameExtension,
+                out streamids, out warnings);
+
+            using (FileStream fs = new FileStream("prueba.xls", FileMode.Create))
+            {
+                fs.Write(bytesExcel, 0, bytesExcel.Length);
+            }
+
+
+            //Abro los archivos
+            System.Diagnostics.Process.Start("prueba.xls");
+            System.Diagnostics.Process.Start("prueba.pdf");
+        }
+
+
+
 
         public void Prueba()
         {

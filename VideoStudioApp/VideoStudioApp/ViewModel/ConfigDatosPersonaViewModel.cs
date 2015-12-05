@@ -61,7 +61,9 @@ namespace VideoStudioApp.ViewModel
             {
                 DateTime today = DateTime.Today;
                 int age = today.Year - Convert.ToInt32(SelectedGrabacion.Edad);
-                                 
+                today.AddYears(-age);
+                SelectedGrabacion.Edad = today.ToString();
+                                     
                 GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo, SelectedGrabacion);
                 viewGra.ShowDialog();
 

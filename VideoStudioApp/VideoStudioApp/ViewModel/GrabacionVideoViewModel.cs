@@ -4,6 +4,7 @@ using NReco.VideoConverter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -18,6 +19,8 @@ using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
+using VideoStudioApp.Business;
 using VideoStudioApp.Command;
 using VideoStudioApp.Model;
 using VideoStudioApp.Views;
@@ -38,10 +41,18 @@ namespace VideoStudioApp.ViewModel
 
         public Grabacion SelectedGrabacion { get; set; }
 
+        private DispatcherTimer dt ;
+        private Stopwatch stopWatch;
+        string currentTime;
 
         public GrabacionVideoViewModel(Window home, Window currentWindow, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam, Grabacion selectedGrabacion)
         {
            
+            dt = new DispatcherTimer();
+            stopWatch = new Stopwatch();
+            dt.Tick += new EventHandler(dt_Tick);
+            dt.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            currentTime = string.Empty;
 
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF0E18E8"));
@@ -57,8 +68,19 @@ namespace VideoStudioApp.ViewModel
             WebcamCtrl = cam;
             CrearMarcaAgua();
             CargarVideo();
-            TextTimer = "30:00";
+           // TextTimer = "30:00";
 
+        }
+
+        void dt_Tick(object sender, EventArgs e)
+        {
+            if (stopWatch.IsRunning)
+            {
+                TimeSpan ts = stopWatch.Elapsed;
+                currentTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                TextTimer = currentTime;
+            }
         }
 
         private void CrearMarcaAgua()
@@ -112,14 +134,29 @@ namespace VideoStudioApp.ViewModel
             new Action(
             delegate()
             {
-                WebcamCtrl.StartRecording();
 
-                //Espera 20 segundoss y detiene
-                Thread.Sleep(10000);
+                WebcamCtrl.StartRecording();
+               
+
+                  CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+            new Action(
+            delegate()
+            {
+               
+               
+                stopWatch.Start();
+                dt.Start();
+
+            }
+            ));
+                  //Espera 20 segundoss y detiene
+                  Thread.Sleep(10000);
+               
                 // WebcamCtrl.StopPreview();        
                 WebcamCtrl.StopRecording();
                 AgregarMarcaAguaVideo();
 
+                GuardarGrabacion();
                 MainWindow main = new MainWindow();
                 main.ShowDialog();
                 this.Home.Close();
@@ -130,6 +167,13 @@ namespace VideoStudioApp.ViewModel
             ));
         }
 
+        private void GuardarGrabacion()
+        {
+            AppManager appManager = new AppManager();
+            appManager.AgregarGrabacion(SelectedGrabacion.Lugar, SelectedGrabacion.Brigada, SelectedGrabacion.Colonia, SelectedGrabacion.Municipio, SelectedGrabacion.Nombre, Convert.ToDateTime(SelectedGrabacion.Edad));
+        }
+
+
         private void Grabar()
         {
             BackgroundWorker bw = new BackgroundWorker();
@@ -137,17 +181,15 @@ namespace VideoStudioApp.ViewModel
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
 
             // Kick off the Async thread
-            bw.RunWorkerAsync();
-                       
-                    
-           
+            bw.RunWorkerAsync();    
+                              
            
         }
 
 
 
         public bool ResizeImage(string fileName, string imgFileName,
-  ImageFormat format, int percent)
+            ImageFormat format, int percent)
         {
             try
             {

@@ -14,25 +14,27 @@ namespace VideoStudioApp.ViewModel
 {
     public class ConfigDatosPersonaViewModel:ViewModelBase
     {
-        
-        public Window Home { get; set; }
+
+        public Window GrabacionW { get; set; }
        public Window CurrentWindow { get; set; }
 
       
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
         public Grabacion SelectedGrabacion { get; set; }
-        
 
-        public ConfigDatosPersonaViewModel(Window home, Window current, EncoderDevice selectedAudio,
+
+        public ConfigDatosPersonaViewModel(Window grabacionW,  Window current, EncoderDevice selectedAudio,
             EncoderDevice selectedVideo, Grabacion grabacion)
         {
-            Home = home;
+            GrabacionW = grabacionW;
             SelectedGrabacion = grabacion;
             CurrentWindow = current;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             CargarDatosLugar();
+            SelectedGrabacion.Edad = "";
+            SelectedGrabacion.Nombre = "";
         }
 
         private void CargarDatosLugar()
@@ -136,13 +138,30 @@ namespace VideoStudioApp.ViewModel
                 int age = today.Year - Convert.ToInt32(SelectedGrabacion.Edad);
                 today.AddYears(-age);
                 SelectedGrabacion.Edad = today.ToString();
-                                     
-                GrabacionVideo viewGra = new GrabacionVideo(this.Home, SelectedAudio, SelectedVideo, SelectedGrabacion);
-                viewGra.ShowDialog();
 
 
                 this.CurrentWindow.Close();
-                this.Dispose();
+
+
+                if (GrabacionW == null)
+                {
+                    GrabacionVideo viewGra = new GrabacionVideo(SelectedAudio, SelectedVideo, SelectedGrabacion);
+                    viewGra.ShowDialog();
+                }
+                else
+                {
+
+                    var vm = (GrabacionVideoViewModel)GrabacionW.DataContext;
+                    vm.SelectedGrabacion = SelectedGrabacion;
+                    vm.InitializeVm();
+                    GrabacionW.DataContext = vm;
+                    GrabacionW.Show();
+                    
+                }
+
+            
+             
+            
             }
 
             

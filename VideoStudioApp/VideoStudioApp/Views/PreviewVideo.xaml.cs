@@ -21,15 +21,15 @@ namespace VideoStudioApp.Views
     /// </summary>
     public partial class PreviewVideo : Window
     {
-         public Window Home { get; set; }
+      
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
-        public PreviewVideo(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio)
+        public PreviewVideo(EncoderDevice selectedVideo, EncoderDevice selectedAudio)
         {
             InitializeComponent();
             this.WebcamCtrl.ImagenMarcaAgua = "tigre.jpg";
-            Home = home;
+          
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
 
@@ -37,7 +37,7 @@ namespace VideoStudioApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            PreviewVideoViewModel vm = new PreviewVideoViewModel(Home,this, SelectedVideo, SelectedAudio, this.WebcamCtrl);
+            PreviewVideoViewModel vm = new PreviewVideoViewModel(this, SelectedVideo, SelectedAudio, this.WebcamCtrl);
             this.DataContext = vm;
         }
     }

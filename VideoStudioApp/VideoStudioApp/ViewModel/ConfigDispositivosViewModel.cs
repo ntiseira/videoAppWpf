@@ -18,10 +18,9 @@ namespace VideoStudioApp.ViewModel
          public Window Home { get; set; }
        public Window CurrentWindow { get; set; }
 
-       public ConfigDispositivosViewModel(Window home, Window window)
+       public ConfigDispositivosViewModel( Window window)
         {
-            CurrentWindow = window;
-            Home = home;
+            CurrentWindow = window;           
             CargarDispositivos();
         }
 
@@ -55,13 +54,12 @@ namespace VideoStudioApp.ViewModel
         }
 
         private void IniciarPreview()
-        {
-            Home.Hide();
-            PreviewVideo viewGra = new PreviewVideo(this.Home, SelectedAudioDevice, SelectedVideoDevice);
+        {          
+            PreviewVideo viewGra = new PreviewVideo(SelectedAudioDevice, SelectedVideoDevice);
             viewGra.ShowDialog();
 
             this.CurrentWindow.Close();
-            this.Dispose();
+            //this.Dispose();
            
         }
 

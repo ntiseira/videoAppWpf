@@ -20,18 +20,17 @@ namespace VideoStudioApp.Views
     /// </summary>
     public partial class ConfigDispositivos : Window
     {
-        public Window Home { get; set; }
+        
 
 
-        public ConfigDispositivos( Window home)
+        public ConfigDispositivos()
         {
-            InitializeComponent();
-            Home = home;
+            InitializeComponent();        
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ConfigDispositivosViewModel vm = new ConfigDispositivosViewModel(Home, this);
+            ConfigDispositivosViewModel vm = new ConfigDispositivosViewModel(this);
             this.DataContext = vm;
         }
 

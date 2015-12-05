@@ -23,15 +23,16 @@ namespace VideoStudioApp.Views
     /// </summary>
     public partial class ConfigDatosPersona : Window
     {
-      public Window Home { get; set; }
+        public Window GrabacionWindow { get; set; }
+    
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
         public Grabacion SelectedGrabacion { get; set; }
 
-        public ConfigDatosPersona(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio, Grabacion grabacion)
+        public ConfigDatosPersona(Window grabacionW, EncoderDevice selectedVideo, EncoderDevice selectedAudio, Grabacion grabacion)
         {
             InitializeComponent();
-            Home = home;
+            GrabacionWindow = grabacionW;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             SelectedGrabacion = grabacion;
@@ -40,7 +41,7 @@ namespace VideoStudioApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ConfigDatosPersonaViewModel vm = new ConfigDatosPersonaViewModel(Home, this, SelectedVideo, SelectedAudio, SelectedGrabacion);
+            ConfigDatosPersonaViewModel vm = new ConfigDatosPersonaViewModel(GrabacionWindow, this, SelectedVideo, SelectedAudio, SelectedGrabacion);
             this.DataContext = vm;
         }
 

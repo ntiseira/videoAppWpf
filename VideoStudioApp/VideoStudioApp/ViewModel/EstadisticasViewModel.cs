@@ -101,38 +101,50 @@ namespace VideoStudioApp.ViewModel
 
        private void ExportExcelReporte()
        {
-           Warning[] warnings;
-           string[] streamids;
-           string mimeType;
-           string encoding;
-           string filenameExtension;
-           ReportViewer viewer = new ReportViewer();
-           viewer.LocalReport.Refresh();
-           viewer.LocalReport.ReportPath = "Report\\ReporteGrabaciones.rdlc";
 
-           
-           AppManager appManager = new AppManager();
-           var reporte =  appManager.GetReporte( ReporteCurrent.Edad, ReporteCurrent.Brigada,
-               ReporteCurrent.Lugar, ReporteCurrent.Municipio, ReporteCurrent.Colonia, ReporteCurrent.FechaInicial, ReporteCurrent.FechaFinal);
-
-
-
-           viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetVideo", reporte));
-
-
-           //Excel
-           byte[] bytesExcel = viewer.LocalReport.Render(
-               "Excel", null, out mimeType, out encoding, out filenameExtension,
-               out streamids, out warnings);
-
-           using (FileStream fs = new FileStream("Reporte.xls", FileMode.Create))
+           if (ReporteCurrent.Edad == null || ReporteCurrent.Brigada == null ||
+               ReporteCurrent.Lugar == null ||
+                   ReporteCurrent.Municipio == null || ReporteCurrent.Colonia == null
+            || ReporteCurrent.FechaInicial == null || ReporteCurrent.FechaFinal == null)
            {
-               fs.Write(bytesExcel, 0, bytesExcel.Length);
+               System.Windows.MessageBox.Show("Por favor complete todos los datos");
            }
+           else
+           {
+
+               Warning[] warnings;
+               string[] streamids;
+               string mimeType;
+               string encoding;
+               string filenameExtension;
+               ReportViewer viewer = new ReportViewer();
+               viewer.LocalReport.Refresh();
+               viewer.LocalReport.ReportPath = "Report\\ReporteGrabaciones.rdlc";
 
 
-           //Abro los archivos
-           System.Diagnostics.Process.Start("Reporte.xls");
+               AppManager appManager = new AppManager();
+               var reporte = appManager.GetReporte(ReporteCurrent.Edad, ReporteCurrent.Brigada,
+                   ReporteCurrent.Lugar, ReporteCurrent.Municipio, ReporteCurrent.Colonia, ReporteCurrent.FechaInicial, ReporteCurrent.FechaFinal);
+
+
+
+               viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetVideo", reporte));
+
+
+               //Excel
+               byte[] bytesExcel = viewer.LocalReport.Render(
+                   "Excel", null, out mimeType, out encoding, out filenameExtension,
+                   out streamids, out warnings);
+
+               using (FileStream fs = new FileStream("Reporte.xls", FileMode.Create))
+               {
+                   fs.Write(bytesExcel, 0, bytesExcel.Length);
+               }
+
+
+               //Abro los archivos
+               System.Diagnostics.Process.Start("Reporte.xls");
+           }
        }
 
 
@@ -153,6 +165,19 @@ namespace VideoStudioApp.ViewModel
 
        private void ExportPdfReporte()
        {
+
+           if (ReporteCurrent.Edad == null || ReporteCurrent.Brigada == null ||
+               ReporteCurrent.Lugar == null ||
+                   ReporteCurrent.Municipio == null || ReporteCurrent.Colonia == null
+            || ReporteCurrent.FechaInicial == null || ReporteCurrent.FechaFinal == null)
+            {
+                   System.Windows.MessageBox.Show("Por favor complete todos los datos");      
+            }
+            else
+            {
+
+
+
            Warning[] warnings;
            string[] streamids;
            string mimeType;
@@ -182,6 +207,8 @@ namespace VideoStudioApp.ViewModel
            }
 
            System.Diagnostics.Process.Start("Reporte.pdf");
+
+            }
        }
 
 

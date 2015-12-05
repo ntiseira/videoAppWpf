@@ -13,10 +13,7 @@ using WebcamControl;
 namespace VideoStudioApp.ViewModel
 {
     public class PreviewVideoViewModel:ViewModelBase
-    {
-
-        
-         public Window Home { get; set; }
+    {  
        public Window CurrentWindow { get; set; }
 
       
@@ -26,9 +23,9 @@ namespace VideoStudioApp.ViewModel
         public Webcam WebcamCtrl {get; set;}
 
 
-        public PreviewVideoViewModel(Window home,Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam)
+        public PreviewVideoViewModel(Window current, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam)
         {
-            Home = home;
+          
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
             CurrentWindow = current;
@@ -40,8 +37,7 @@ namespace VideoStudioApp.ViewModel
         public void CargarVideo()
         {
             try
-            {
-                CalculateAndReziseWebCam();
+            {              
                 WebcamCtrl.AudioDevice = SelectedAudio;
                 WebcamCtrl.VideoDevice = SelectedVideo;
                 
@@ -70,15 +66,6 @@ namespace VideoStudioApp.ViewModel
             }
         }
 
-        private void CalculateAndReziseWebCam()
-        {
-           
-            var prueba = System.Windows.SystemParameters.PrimaryScreenWidth;
-            var prueba2 = System.Windows.SystemParameters.PrimaryScreenHeight;
-
-
-        }
-
 
         private ICommand cancelarCommand;
         public ICommand CancelarCommand
@@ -97,8 +84,10 @@ namespace VideoStudioApp.ViewModel
 
         public void Cancelar()
         {
-            Home.ShowDialog();
-            CurrentWindow.Close();        
+            MainWindow main = new MainWindow();
+            main.ShowDialog();
+            CurrentWindow.Close();            
+           // this.Dispose();
         }
 
 
@@ -119,10 +108,11 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarConfigDatosLugar()
         {
-            Home.Hide();
-            ConfigDatosLugar viewGra = new ConfigDatosLugar(this.Home, this.CurrentWindow, SelectedAudio, SelectedVideo);
+           
+            ConfigDatosLugar viewGra = new ConfigDatosLugar(this.CurrentWindow, SelectedAudio, SelectedVideo);
             viewGra.ShowDialog();
-            this.CurrentWindow.Hide();            
+            CurrentWindow.Close();
+        //    this.Dispose();
            
         }
 

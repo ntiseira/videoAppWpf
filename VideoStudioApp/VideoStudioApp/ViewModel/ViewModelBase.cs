@@ -12,6 +12,7 @@ namespace VideoStudioApp.ViewModel
     /// Provides common functionality for ViewModel classes
     /// </summary>
     public abstract class ViewModelBase : INotifyPropertyChanged
+        //,IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,12 +27,12 @@ namespace VideoStudioApp.ViewModel
         }
 
 
-        public void Dispose()
-        {
-            // Dispose of unmanaged resources.            
-            this.Dispose();
-            // Suppress finalization.
-            GC.SuppressFinalize(this);
-        }
+        //public void Dispose()
+        //{
+        //    // Dispose of unmanaged resources.            
+        //    this.Dispose();
+        //    // Suppress finalization.
+        //    GC.SuppressFinalize(this);
+        //}
     }
 }

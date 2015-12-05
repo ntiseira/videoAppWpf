@@ -22,17 +22,17 @@ namespace VideoStudioApp.Views
     /// </summary>
     public partial class GrabacionVideo : Window
     {
-        public Window Home { get; set; }
+        public Window Config { get; set; }
         public EncoderDevice SelectedVideo { get; set; }
         public EncoderDevice SelectedAudio { get; set; }
 
         public Grabacion SelectedGrabacion { get; set; }
-
+        public GrabacionVideoViewModel ViewModelGrabacion { get; set; }
         
-        public GrabacionVideo(Window home, EncoderDevice selectedVideo, EncoderDevice selectedAudio, Grabacion grabacionSelected)
+        public GrabacionVideo(EncoderDevice selectedVideo, EncoderDevice selectedAudio, Grabacion grabacionSelected)
         {
             InitializeComponent();
-            Home = home;
+        
             SelectedGrabacion = grabacionSelected;
             SelectedAudio = selectedAudio;
             SelectedVideo = selectedVideo;
@@ -41,8 +41,19 @@ namespace VideoStudioApp.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GrabacionVideoViewModel vm = new GrabacionVideoViewModel(Home, this, SelectedVideo, SelectedAudio, this.WebcamCtrl, SelectedGrabacion);
-            this.DataContext = vm;
+            ViewModelGrabacion = new GrabacionVideoViewModel(this, SelectedVideo, SelectedAudio, this.WebcamCtrl, SelectedGrabacion);
+            this.DataContext = ViewModelGrabacion;
+        }
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (ViewModelGrabacion != null)
+            {
+                ViewModelGrabacion.InitializeVm();
+            }
+
+
+
         }
     }
 }

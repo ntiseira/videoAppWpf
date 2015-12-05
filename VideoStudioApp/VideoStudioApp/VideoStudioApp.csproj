@@ -92,6 +92,7 @@
     <Compile Include="Helper\ExportToExcel.cs" />
     <Compile Include="Helper\ExportToPdf.cs" />
     <Compile Include="Helper\WaterMark.cs" />
+    <Compile Include="Model\ConfigWaterMark.cs" />
     <Compile Include="Model\Grabacion.cs" />
     <Compile Include="PasswordHelper.cs" />
     <Compile Include="Model\ComboBoxD.cs" />

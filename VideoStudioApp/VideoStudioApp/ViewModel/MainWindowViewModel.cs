@@ -55,7 +55,7 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarAdmin()
         {
-            this.Home.Hide();
+            this.Home.Close();
             Administrador admin = new Administrador( this.Home);
             admin.ShowDialog();
         }
@@ -80,10 +80,11 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarApp()
         {
-            this.Home.Hide();
-            ConfigDispositivos admin = new ConfigDispositivos(this.Home);
+
+            ConfigDispositivos admin = new ConfigDispositivos();
             admin.ShowDialog();
-          
+            this.Home.Close();
+       //     this.Dispose();
         }
 
 

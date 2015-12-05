@@ -30,7 +30,12 @@ namespace VideoStudioApp.ViewModel
 {
     public  class GrabacionVideoViewModel : ViewModelBase
     {
-        public Window Home { get; set; }
+        public bool IsRecorded { get; set; }
+        public bool IsAddedWaterMark { get; set; }
+
+        public ConfigWaterMark Config { get; set; }
+
+        public Window ConfigWinwdow { get; set; }
 
         public Window CurrentWindow { get; set; }
 
@@ -45,42 +50,120 @@ namespace VideoStudioApp.ViewModel
         private Stopwatch stopWatch;
         string currentTime;
 
-        public GrabacionVideoViewModel(Window home, Window currentWindow, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam, Grabacion selectedGrabacion)
+        public GrabacionVideoViewModel(Window currentWindow, EncoderDevice selectedAudio, EncoderDevice selectedVideo, Webcam cam, Grabacion selectedGrabacion)
         {
+
            
+            
+            CurrentWindow = currentWindow;
+                    
+            SelectedAudio = selectedAudio;
+            SelectedVideo = selectedVideo;
+            SelectedGrabacion = selectedGrabacion;
+          
+            WebcamCtrl = cam;
+            InitializeVm();
+            Config = new ConfigWaterMark();
+            Config.VideoUrl = "C:\\Videos";
+            Config.NombreVideo = WebcamCtrl.NombreVideo.ToString();
+            CrearMarcaAgua();
+            CargarVideo();
+
+       
+            
+           // TextTimer = "30:00";
+
+        }
+
+        public void InitializeVm()
+        {
+
+            IsRecorded = false;
+            IsAddedWaterMark = false;
             dt = new DispatcherTimer();
             stopWatch = new Stopwatch();
             dt.Tick += new EventHandler(dt_Tick);
             dt.Interval = new TimeSpan(0, 0, 0, 0, 1);
             currentTime = string.Empty;
-
+            WebcamCtrl.NombreVideo = SelectedGrabacion.Nombre + "_" + DateTime.Now.ToString("yyyy_dd_MM");
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF0E18E8"));
             ColorBtnGrabar = mySolidColorBrush;
             TextBtnGrabar = "Grabar";
-
-            CurrentWindow = currentWindow;
-            Home = home;            
-            SelectedAudio = selectedAudio;
-            SelectedVideo = selectedVideo;
-            SelectedGrabacion = selectedGrabacion;
-           
-            WebcamCtrl = cam;
-            CrearMarcaAgua();
-            CargarVideo();
-           // TextTimer = "30:00";
-
+        
+        
         }
+
 
         void dt_Tick(object sender, EventArgs e)
         {
             if (stopWatch.IsRunning)
             {
+
+                if (WebcamCtrl.IsRecording == false)
+                { 
+                    WebcamCtrl.StopRecording();
+                }
+
                 TimeSpan ts = stopWatch.Elapsed;
-                currentTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                    ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-                TextTimer = currentTime;
+
+                if (ts.Seconds < 2)
+                {
+                    currentTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                        ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                    TextTimer = currentTime;
+                }
+                else
+                {
+                    if (!IsRecorded)
+                    {
+                        IsRecorded = true;
+                        WebcamCtrl.StopRecording();
+                        GuardarGrabacion();
+                      
+                    }
+                    else
+                    {
+                        if (!IsAddedWaterMark)
+                        {
+                            IsAddedWaterMark = true;
+                            
+                            var thread = new Thread(() => update());
+                            thread.SetApartmentState(ApartmentState.STA);
+                            thread.IsBackground = true;
+                            thread.Start();                          
+                        }
+                    
+                    }
+
+                 //   AgregarMarcaAguaVideo();
+
+                //    this.Dispose();
+                 //   this.CurrentWindow.Close();
+           
+                   
+                 
+
+                }
             }
+        }
+
+        public void update()
+        {
+           // this.CurrentWindow.Dispatcher.Invoke(() => Application.Current.MainWindow.Close());
+            AgregarMarcaAguaVideo();
+
+   
+
+            //this.CurrentWindow.Close();
+          //  this.Dispose();
+           // this.CurrentWindow.Close();
+        }
+
+        private void bw_DoWork2(object sender, DoWorkEventArgs e)
+        {
+            AgregarMarcaAguaVideo();
+            this.CurrentWindow.Close();
         }
 
         private void CrearMarcaAgua()
@@ -118,55 +201,14 @@ namespace VideoStudioApp.ViewModel
                 {
                     TextBtnGrabar = "Grabando...";
                     ColorBtnGrabar = new SolidColorBrush(Colors.DarkRed);
-                    stopWatch.Start();
-                    dt.Start();
+                                
+
                 }
                 );
         }
 
 
-        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            // The background process is complete. First we should hide the
-            // modal Progress Form to unlock the UI. The we need to inspect our
-            // response to see if an error occured, a cancel was requested or
-            // if we completed succesfully.
-
-            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Background,
-            new Action(
-            delegate()
-            {
-
-                WebcamCtrl.StartRecording();
-               
-
-            //      CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-            //new Action(
-            //delegate()
-            //{
-               
-               
-               
-
-            //}
-            //));
-                  //Espera 20 segundoss y detiene
-                 // Thread.Sleep(10000);
-               
-                // WebcamCtrl.StopPreview();        
-                WebcamCtrl.StopRecording();
-                AgregarMarcaAguaVideo();
-
-                GuardarGrabacion();
-                MainWindow main = new MainWindow();
-                main.ShowDialog();
-                this.Home.Close();
-                
-                this.CurrentWindow.Close();
-                this.Dispose();
-            }
-            ));
-        }
+      
 
         private void GuardarGrabacion()
         {
@@ -177,16 +219,36 @@ namespace VideoStudioApp.ViewModel
 
         private void Grabar()
         {
+            WebcamCtrl.StartRecording();
+            stopWatch.Start();
+            dt.Start();
+
+
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-
+          //  bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+            bw.RunWorkerCompleted += (s, e) =>
+            {
+                try
+                {
+                    if (e.Error != null)
+                    {
+                        // Handle failure.
+                    }
+                }
+                finally
+                {
+                    // Use wkr outer instead of casting.
+                    bw.Dispose();
+                }
+            };
             // Kick off the Async thread
-            bw.RunWorkerAsync();    
-                              
+            bw.RunWorkerAsync();
+                    
            
         }
 
+     
 
 
         public bool ResizeImage(string fileName, string imgFileName,
@@ -252,12 +314,34 @@ namespace VideoStudioApp.ViewModel
             var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
             var variable = "C:\\marcaAgua.jpg";
 
-            ffMpeg.Invoke("-i " + WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi " + "-i " + variable + " -filter_complex \"overlay=400:330\" -codec:a copy " + WebcamCtrl.VideoDirectory + "\\" +WebcamCtrl.NombreVideo + "c.avi");
-            System.IO.File.Delete(WebcamCtrl.VideoDirectory + "\\" + WebcamCtrl.NombreVideo + ".avi ");
+            ffMpeg.Invoke("-i " + Config.VideoUrl + "\\" + SelectedGrabacion.Nombre + "_" + DateTime.Now.ToString("yyyy_dd_MM") + ".avi " + "-i " + variable + " -filter_complex \"overlay=400:330\" -codec:a copy " + Config.VideoUrl + "\\" + SelectedGrabacion.Nombre + "_" + DateTime.Now.ToString("yyyy_dd_MM") + "c.avi");
+            System.IO.File.Delete(Config.VideoUrl + "\\" + SelectedGrabacion.Nombre + "_" + DateTime.Now.ToString("yyyy_dd_MM") + ".avi ");
 
 
             var pathVideoSource = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            pathVideoSource += "\\" + WebcamCtrl.NombreVideo + ".avi";
+            pathVideoSource += "\\" + Config.NombreVideo + ".avi";
+
+            dt.Stop();
+            //dt.Dispatcher.InvokeShutdown();
+
+
+            CurrentWindow.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+            new Action(
+            delegate()
+            {
+
+                TextTimer = "";
+                TextBtnGrabar = "Grabar";
+                ColorBtnGrabar = new SolidColorBrush(Colors.Blue);
+                this.InitializeVm();
+                CurrentWindow.Hide();
+                ConfigDatosPersona config = new ConfigDatosPersona(this.CurrentWindow,SelectedVideo, SelectedAudio, SelectedGrabacion);
+                config.ShowDialog();
+
+            }));
+                       
+            
+
         }
         
         private string textTimer;

@@ -16,7 +16,6 @@ namespace VideoStudioApp.ViewModel
    public class ConfigDatosLugarViewModel:ViewModelBase
     {
 
-        public Window Home { get; set; }
        public Window CurrentWindow { get; set; }
 
        public Window ConfigWindow { get; set; }
@@ -32,9 +31,8 @@ namespace VideoStudioApp.ViewModel
        public List<ComboBoxD> ListaMunicipios { get; set; }
        public List<ComboBoxD> ListaColonias { get; set; }
 
-       public ConfigDatosLugarViewModel(Window home, Window current, Window config, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
-        {
-            Home = home;
+       public ConfigDatosLugarViewModel( Window current, Window config, EncoderDevice selectedAudio, EncoderDevice selectedVideo)
+       {         
             CurrentWindow = current;
             ConfigWindow = config;
             SelectedAudio = selectedAudio;
@@ -87,7 +85,7 @@ namespace VideoStudioApp.ViewModel
         {
             MainWindow principal = new MainWindow();
             principal.ShowDialog();
-            this.Dispose();
+          //  this.Dispose();
             this.CurrentWindow.Close();
         }
 
@@ -109,10 +107,10 @@ namespace VideoStudioApp.ViewModel
 
         private void RegresarPreview()
         {   
-            MainWindow main = new MainWindow();
-            ConfigDispositivos view = new ConfigDispositivos(main);
+            
+            ConfigDispositivos view = new ConfigDispositivos();
             view.ShowDialog();
-            this.Dispose();
+           // this.Dispose();
             this.CurrentWindow.Close();
           
         }
@@ -139,12 +137,12 @@ namespace VideoStudioApp.ViewModel
                         appManager.AgregarColonia(GrabacionVideoCurrent.OtrosColonia, GrabacionVideoCurrent.Municipio);
                         appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
 
-                        ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo,
+                        ConfigDatosPersona viewGra = new ConfigDatosPersona(null,SelectedAudio, SelectedVideo,
                             GrabacionVideoCurrent);
                         viewGra.ShowDialog();
 
                         this.CurrentWindow.Close();
-                        this.Dispose();
+                       // this.Dispose();
                     }
                     else
                     {
@@ -161,11 +159,11 @@ namespace VideoStudioApp.ViewModel
                 appManager.AgregarLugar(GrabacionVideoCurrent.Lugar);
 
                 
-                ConfigDatosPersona viewGra = new ConfigDatosPersona(this.Home, SelectedAudio, SelectedVideo, GrabacionVideoCurrent);
+                ConfigDatosPersona viewGra = new ConfigDatosPersona(null, SelectedAudio, SelectedVideo, GrabacionVideoCurrent);
                 viewGra.ShowDialog();
 
                 this.CurrentWindow.Close();
-                this.Dispose();
+               // this.Dispose();
                     }
                   else
                   {

@@ -46,6 +46,20 @@ namespace VideoStudioApp.ViewModel
        }
 
 
+       private string user;
+       public string User
+       {
+           get
+           {
+               return user;
+           }
+           set
+           {
+               user = value;
+               OnPropertyChanged("User");
+           }
+       }
+
 
 
        private ICommand loginCommand;
@@ -69,8 +83,8 @@ namespace VideoStudioApp.ViewModel
 
             AppManager manager = new AppManager();
             var text = plain.Text;
-            
-            if (manager.ValidateUser("ntiseira", text))
+
+            if (manager.ValidateUser(User, text))
             {
                 Home.Hide();
 

@@ -107,9 +107,31 @@ namespace VideoStudioApp.ViewModel
         }
 
 
-      
+
+        private ICommand regresarMenuCommand;
+         public ICommand RegresarMenuCommand
+        {
+            get
+            {
+                if (regresarMenuCommand == null)
+                {
+                    regresarMenuCommand = new RelayCommand(
+                        param => this.RegresarMenu()
+                    );
+                }
+                return regresarMenuCommand;
+            }
+        }
+
+         private void RegresarMenu()
+         {
+             this.CurrentWindow.Close();
+             MainWindow main = new MainWindow();
+             main.ShowDialog();
+         }
 
 
+        
 
         private ICommand iniciarGrabacionCommand;
         public ICommand IniciarGrabacionCommand

@@ -55,7 +55,7 @@ namespace VideoStudioApp.ViewModel
 
         private void IniciarAdmin()
         {
-            this.Home.Close();
+            this.Home.Hide();
             Administrador admin = new Administrador( this.Home);
             admin.ShowDialog();
         }

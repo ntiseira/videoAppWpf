@@ -5,6 +5,24 @@
         Title="ConfigDatosPersona" Height="768" Width="1024">
     <Grid Background="#FFC9C9C9">
 
+        <StackPanel HorizontalAlignment="Left" Margin="30" VerticalAlignment="Top">
+
+            <Button Content=""     Background="Transparent"
+        BorderBrush="Transparent"
+        BorderThickness="0" 
+                Command="{Binding RegresarMenuCommand}" HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Width="208" Height="96"
+                        Foreground="Transparent" FontSize="30" Margin="0,-3" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+           
+        </StackPanel>
+
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="226.59,260.045,214.649,269" Width="582.761" Height="238.955" >
             <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
@@ -24,29 +42,29 @@
                         VerticalAlignment="Center" Width="329" Height="54" Background="#FF0E18E8" 
                         Foreground="#FFFDFDFD" FontSize="30" />
             </Border>
-          
+
         </StackPanel>
 
 
-      
-            <WrapPanel Margin="24,0,0,27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="200" Width="350">
-                
-            
+
+        <WrapPanel Margin="24,0,0,27" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="200" Width="350">
+
+
             <StackPanel  DockPanel.Dock="Left" >
                 <TextBlock Width="125"  TextAlignment="Right" FontSize="24">Brigada:</TextBlock>
                 <TextBlock  Width="121.791" TextAlignment="Right" FontSize="24">Lugar:</TextBlock>
                 <TextBlock  Width="121.791" TextAlignment="Right" FontSize="24">Municipio:</TextBlock>
-                <TextBlock Width="120.299" TextAlignment="Right" FontSize="24">Colonia:</TextBlock>                
+                <TextBlock Width="120.299" TextAlignment="Right" FontSize="24">Colonia:</TextBlock>
             </StackPanel>
 
-            <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0" Width="142" >
-                <TextBlock Width="145" FontSize="24"  Text="{Binding TextBrigada}"></TextBlock>
-                <TextBlock  Width="145" FontSize="24" Text="{Binding TextLugar}" > </TextBlock>
-                <TextBlock  Width="145" FontSize="24" Text="{Binding TextMunicipio}"></TextBlock>
-                <TextBlock Width="145" FontSize="24" Text="{Binding TextColonia}"></TextBlock>
+            <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0" Width="212" >
+                <TextBlock Width="200" FontSize="24"  Text="{Binding TextBrigada}" HorizontalAlignment="Left" Margin="0,0,-3,0"></TextBlock>
+                <TextBlock  Width="200" FontSize="24" Text="{Binding TextLugar}" ></TextBlock>
+                <TextBlock  Width="200" FontSize="24" Text="{Binding TextMunicipio}"></TextBlock>
+                <TextBlock Width="200" FontSize="24" Text="{Binding TextColonia}"></TextBlock>
             </StackPanel>
-            </WrapPanel>
-        
+        </WrapPanel>
+
 
     </Grid>
 </Window>

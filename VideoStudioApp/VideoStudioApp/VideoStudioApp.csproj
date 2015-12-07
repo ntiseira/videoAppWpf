@@ -36,17 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp">
-      <HintPath>DLLs\itextsharp.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Expression.Encoder, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Expression\Encoder 4\SDK\Microsoft.Expression.Encoder.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Visual Studio Tools for Office\PIA\Office12\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -89,8 +81,6 @@
     <Compile Include="Business\AppManager.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Data Access\MySqlDataAccess.cs" />
-    <Compile Include="Helper\ExportToExcel.cs" />
-    <Compile Include="Helper\ExportToPdf.cs" />
     <Compile Include="Helper\WaterMark.cs" />
     <Compile Include="Model\ConfigWaterMark.cs" />
     <Compile Include="Model\Grabacion.cs" />
@@ -211,10 +201,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\tigrewatermark.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="tigre.jpg">
+    <Content Include="Content\Images\MarcaDeAgua.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

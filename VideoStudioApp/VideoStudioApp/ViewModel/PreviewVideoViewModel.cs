@@ -30,6 +30,10 @@ namespace VideoStudioApp.ViewModel
             SelectedVideo = selectedVideo;
             CurrentWindow = current;
             WebcamCtrl = cam;
+                var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            pathMarcaAgua += "\\Content\\Images\\" + "MarcaDeAgua.jpg";
+            WebcamCtrl.ImagenMarcaAgua = pathMarcaAgua;
+          
             CargarVideo();
             
         }

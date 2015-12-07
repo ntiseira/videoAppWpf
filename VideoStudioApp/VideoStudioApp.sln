@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStudioApp", "VideoStud
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebcamControl", "WebcamControl\WebcamControl.vbproj", "{72108E55-77EC-4C0C-9B6F-A5D882726A6B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VideoAppSetup", "VideoAppSetup\VideoAppSetup.vdproj", "{EA884D00-E00E-4238-918C-C61550084310}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,7 @@ Global
 		{312B1C99-BAFA-41EB-88EA-D0EFF2CBF5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{312B1C99-BAFA-41EB-88EA-D0EFF2CBF5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{312B1C99-BAFA-41EB-88EA-D0EFF2CBF5A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{312B1C99-BAFA-41EB-88EA-D0EFF2CBF5A8}.Release|x86.Build.0 = Release|Any CPU
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Debug|x86.ActiveCfg = Debug|x86
@@ -29,6 +32,10 @@ Global
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Release|x86.ActiveCfg = Release|x86
 		{72108E55-77EC-4C0C-9B6F-A5D882726A6B}.Release|x86.Build.0 = Release|x86
+		{EA884D00-E00E-4238-918C-C61550084310}.Debug|Any CPU.ActiveCfg = Debug
+		{EA884D00-E00E-4238-918C-C61550084310}.Debug|x86.ActiveCfg = Debug
+		{EA884D00-E00E-4238-918C-C61550084310}.Release|Any CPU.ActiveCfg = Release
+		{EA884D00-E00E-4238-918C-C61550084310}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

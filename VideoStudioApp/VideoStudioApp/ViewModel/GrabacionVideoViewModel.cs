@@ -106,10 +106,7 @@ namespace VideoStudioApp.ViewModel
                 }
 
                 TimeSpan ts = stopWatch.Elapsed;
-
-                TimeSpan tsTope = new TimeSpan();
-
-                ts.
+                              
                 if (ts.Seconds < 30)
                 {
                     currentTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
@@ -173,7 +170,7 @@ namespace VideoStudioApp.ViewModel
         {           
             //NombreMarcaAgua
             var pathMarcaAgua = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            pathMarcaAgua += "\\" + "tigre.jpg";
+            pathMarcaAgua += "\\Content\\Images\\" + "MarcaDeAgua.jpg";
 
             ResizeImage(pathMarcaAgua, "C:\\marcaAgua.jpg", ImageFormat.Jpeg, 0);
             this.WebcamCtrl.ImagenMarcaAgua = "C:\\marcaAgua.jpg";

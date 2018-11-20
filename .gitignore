@@ -1,2 +1,12 @@
 VideoStudioApp/VideoStudioApp/bin/Debug/VideoStudioApp.exe.config
 *.config
+*.sou
+bin
+obj
+*.cache
+*.user
+packages
+.vs
+*.orig
+*.backup
+*.psess

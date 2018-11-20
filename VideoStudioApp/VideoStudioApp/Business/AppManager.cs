@@ -81,18 +81,19 @@ namespace VideoStudioApp.Business
                 List<Reporte> list = new List<Reporte>();
                 MySqlDataAccess mysqlAccess = new MySqlDataAccess();
                 OrderedDictionary listParam = new OrderedDictionary();
-                
 
-                listParam.Add("pEdad", int.Parse(edad));
-                listParam.Add("pBrigada", brigada);
-                listParam.Add("pLugar", lugar);
-                listParam.Add("pMunicipio", municipio);
-                listParam.Add("pColonia", colonia);             
+                DateTime edadDate = new DateTime(int.Parse(edad), DateTime.Now.Month, DateTime.Now.Day);
 
-                listParam.Add("pFechaInicial", fechaInicial.Date);
+                listParam.Add("Edad", edadDate);
+                listParam.Add("Brigada", brigada);
+                listParam.Add("Lugar", lugar);
+                listParam.Add("Municipio", municipio);
+                listParam.Add("Colonia", colonia);             
+
+                listParam.Add("FechaInicial", fechaInicial.Date);
 
 
-                listParam.Add("pFechaFinal", fechaHasta.Date);
+                listParam.Add("FechaFinal", fechaHasta.Date);
                 var data = mysqlAccess.ExecuteProcedure("ObtenerReporte", listParam);
 
 
